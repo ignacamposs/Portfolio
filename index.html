@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matías Ignacio Campos | Front-End Developer & Barista</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <meta name="description" content="Front-End Developer autodidacta y barista en Buenos Aires. Interfaces extraídas con la misma precisión que un espresso: prueba, ajuste y mejora continua.">
+    <meta property="og:title" content="Matías Ignacio Campos | Front-End Developer & Barista">
+    <meta property="og:description" content="Interfaces extraídas con la misma precisión que un espresso: prueba, ajuste y mejora continua.">
+    <meta property="og:type" content="website">
+</head>
+<body>
+
+    <!-- Medidor de extracción: timer de espresso real, click para iniciar -->
+    <button id="extraction-meter" type="button"
+        class="fixed bottom-6 right-6 z-50 hidden sm:block p-0 border-0 bg-transparent rounded-full cursor-pointer transition-transform duration-300 hover:scale-110 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-terracotta focus-visible:outline-offset-2"
+        aria-label="Iniciar timer de extracción de 27 segundos">
+        <div class="relative w-16 h-16">
+            <svg width="64" height="64" viewBox="0 0 64 64" class="-rotate-90">
+                <circle cx="32" cy="32" r="26" fill="none" stroke-width="3" class="stroke-espresso-900/10"/>
+                <circle id="extraction-ring" cx="32" cy="32" r="26" fill="none" stroke-width="3" stroke-linecap="round" class="stroke-terracotta animate-[pulse-ring_3s_ease-in-out_infinite]"/>
+            </svg>
+            <span id="extraction-time" class="absolute inset-0 flex items-center justify-center font-mono text-[10px] text-espresso-900">▶</span>
+        </div>
+    </button>
+
+    <nav class="fixed top-0 w-full z-[100] px-6 py-6">
+        <div class="max-w-6xl mx-auto flex justify-between items-center w-full">
+            <span class="text-xl font-display font-semibold italic border-b-2 border-terracotta text-espresso-950 transition-transform duration-300 hover:-rotate-2 inline-block">MIC.</span>
+            <!-- Desktop menu -->
+            <div class="hidden md:flex bg-cream-100/80 backdrop-blur-md border border-espresso-900/10 px-6 py-3 rounded-full gap-8 font-mono text-[10px] uppercase tracking-[0.2em]">
+                <a href="#molienda" class="relative text-espresso-900 transition-colors hover:text-terracotta after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-terracotta after:transition-all after:duration-300 hover:after:w-full">La Molienda</a>
+                <a href="#ratio" class="relative text-espresso-900 transition-colors hover:text-terracotta after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-terracotta after:transition-all after:duration-300 hover:after:w-full">El Ratio</a>
+                <a href="#extracciones" class="relative text-espresso-900 transition-colors hover:text-terracotta after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-terracotta after:transition-all after:duration-300 hover:after:w-full">Extracciones</a>
+                <a href="#pedido" class="relative text-espresso-900 transition-colors hover:text-terracotta after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-terracotta after:transition-all after:duration-300 hover:after:w-full">Pedido</a>
+            </div>
+            <!-- Mobile hamburger -->
+            <button id="menu-btn" class="md:hidden text-espresso-950 p-2" aria-label="Abrir menú">
+                <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+                <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden mt-4 mx-6 bg-cream-100/95 backdrop-blur-md border border-espresso-900/10 rounded-2xl px-6 py-4 flex flex-col gap-4 font-mono text-[11px] uppercase tracking-[0.2em]">
+            <a href="#molienda" class="text-espresso-900 transition-colors hover:text-terracotta">La Molienda</a>
+            <a href="#ratio" class="text-espresso-900 transition-colors hover:text-terracotta">El Ratio</a>
+            <a href="#extracciones" class="text-espresso-900 transition-colors hover:text-terracotta">Extracciones</a>
+            <a href="#pedido" class="text-espresso-900 transition-colors hover:text-terracotta">Pedido</a>
+        </div>
+    </nav>
+
+    <header class="relative min-h-screen flex flex-col items-center justify-center px-6 text-center">
+        <div class="relative z-10 w-full max-w-3xl mx-auto">
+            <span class="font-mono text-terracotta text-[10px] md:text-xs mb-6 block tracking-[0.35em] uppercase" data-reveal>
+                // Barista & Desarrollador — Buenos Aires, Arg
+            </span>
+            <h1 class="font-display text-3xl md:text-5xl leading-tight text-espresso-950 mb-8 [transition-delay:120ms]" data-reveal>
+                Resuelvo problemas con la misma precisión con la que ajusto una extracción.
+            </h1>
+            <p class="text-espresso-800/70 text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-10 [transition-delay:240ms]" data-reveal>
+                Front-End Developer autodidacta. Cada línea de código, como cada shot de café, se prueba,
+                se mide y se ajusta hasta que sale bien.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center [transition-delay:360ms]" data-reveal>
+                <a href="/cv.pdf" download class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-cream bg-espresso-950 px-6 py-3 rounded-full transition-all duration-300 hover:bg-terracotta hover:scale-105 active:scale-95">
+                    Descargar CV ↓
+                </a>
+                <a href="#extracciones" class="group inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-espresso-800/60 hover:text-espresso-950 transition-colors duration-300">
+                    Ver extracciones <span class="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="molienda" class="py-28 px-6 max-w-6xl mx-auto border-t border-espresso-900/10">
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-16 items-start">
+            <div class="md:col-span-3">
+                <h2 class="font-mono text-xs text-terracotta mb-8 uppercase tracking-[0.4em]" data-reveal>01. La Molienda</h2>
+                <h3 class="font-display text-2xl md:text-3xl text-espresso-950 leading-snug mb-8 [transition-delay:80ms]" data-reveal>La base antes que la técnica.</h3>
+
+                <p class="text-espresso-800/80 text-lg leading-relaxed mb-6 [transition-delay:160ms]" data-reveal>
+                    Soy Matías Ignacio Campos. Empecé a moler café en Bariloche —Ristretto, Doble Cero, Latice Café,
+                    Ristretto Catedral, The Coffee Store— antes de mudarme a Buenos Aires, donde sigo detrás de la
+                    barra en Melcha Café, Cafe.te y Ciao Cacao.
+                </p>
+                <p class="text-espresso-800/80 text-lg leading-relaxed mb-6 [transition-delay:220ms]" data-reveal>
+                    Lo que me enganchó de programar es lo mismo que me engancha de una buena extracción:
+                    <span class="text-espresso-950 font-medium">la precisión, el prueba y error, la mejora continua.</span>
+                    Ajustás una variable, medís el resultado, volvés a ajustar. En café y en código, el proceso es idéntico.
+                </p>
+                <p class="text-espresso-800/70 leading-relaxed [transition-delay:280ms]" data-reveal>
+                    Soy autodidacta en desarrollo front-end: documentación oficial, cursos y proyectos propios,
+                    con foco en HTML, CSS, JavaScript y Tailwind CSS.
+                </p>
+
+                <dl class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 font-mono text-[11px] [transition-delay:340ms]" data-reveal>
+                    <div class="border-t border-espresso-900/15 pt-3 transition-colors duration-300 hover:border-terracotta/50">
+                        <dt class="uppercase tracking-widest text-espresso-700/50 mb-1">Origen</dt>
+                        <dd class="text-espresso-900">Bariloche</dd>
+                    </div>
+                    <div class="border-t border-espresso-900/15 pt-3 transition-colors duration-300 hover:border-terracotta/50">
+                        <dt class="uppercase tracking-widest text-espresso-700/50 mb-1">Hoy</dt>
+                        <dd class="text-espresso-900">Buenos Aires</dd>
+                    </div>
+                    <div class="border-t border-espresso-900/15 pt-3 transition-colors duration-300 hover:border-terracotta/50">
+                        <dt class="uppercase tracking-widest text-espresso-700/50 mb-1">Idiomas</dt>
+                        <dd class="text-espresso-900">ES · EN · PT</dd>
+                    </div>
+                </dl>
+            </div>
+
+            <div class="md:col-span-2 [transition-delay:100ms]" data-reveal>
+                <img src="/img/foto.jpg" alt="Matías Ignacio Campos" class="w-full aspect-[4/5] object-cover object-center rounded-2xl">
+                <p class="text-espresso-800/50 text-sm leading-relaxed mt-6">
+                    Creo en el diseño con intención y en la claridad antes que el ruido visual.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="ratio" class="py-24 px-6 max-w-6xl mx-auto border-t border-espresso-900/10">
+        <h2 class="font-mono text-xs text-terracotta mb-4 uppercase tracking-[0.4em]" data-reveal>02. El Ratio</h2>
+        <h3 class="font-display text-2xl md:text-3xl text-espresso-950 leading-snug mb-12" data-reveal>El balance importa tanto en café como en código.</h3>
+
+        <div data-reveal>
+            <p class="font-mono text-xs text-espresso-700/50 uppercase tracking-widest mb-4">Lenguajes</p>
+            <div class="flex flex-wrap gap-3 mb-12">
+                <span class="font-mono text-sm text-espresso-900 px-5 py-2.5 border border-espresso-900/15 rounded-full transition-all duration-300 hover:border-terracotta/50 hover:text-terracotta hover:-translate-y-1 hover:shadow-md">HTML5</span>
+                <span class="font-mono text-sm text-espresso-900 px-5 py-2.5 border border-espresso-900/15 rounded-full transition-all duration-300 hover:border-terracotta/50 hover:text-terracotta hover:-translate-y-1 hover:shadow-md">CSS3</span>
+                <span class="font-mono text-sm text-espresso-900 px-5 py-2.5 border border-espresso-900/15 rounded-full transition-all duration-300 hover:border-terracotta/50 hover:text-terracotta hover:-translate-y-1 hover:shadow-md">JavaScript</span>
+            </div>
+            <p class="font-mono text-xs text-espresso-700/50 uppercase tracking-widest mb-4">Herramientas</p>
+            <div class="flex flex-wrap gap-3">
+                <span class="font-mono text-sm text-espresso-900 px-5 py-2.5 border border-espresso-900/15 rounded-full transition-all duration-300 hover:border-terracotta/50 hover:text-terracotta hover:-translate-y-1 hover:shadow-md">Tailwind CSS</span>
+                <span class="font-mono text-sm text-espresso-900 px-5 py-2.5 border border-espresso-900/15 rounded-full transition-all duration-300 hover:border-terracotta/50 hover:text-terracotta hover:-translate-y-1 hover:shadow-md">Vite</span>
+                <span class="font-mono text-sm text-espresso-900 px-5 py-2.5 border border-espresso-900/15 rounded-full transition-all duration-300 hover:border-terracotta/50 hover:text-terracotta hover:-translate-y-1 hover:shadow-md">Git</span>
+                <span class="font-mono text-sm text-espresso-900 px-5 py-2.5 border border-espresso-900/15 rounded-full transition-all duration-300 hover:border-terracotta/50 hover:text-terracotta hover:-translate-y-1 hover:shadow-md">Responsive Design</span>
+                <span class="font-mono text-sm text-espresso-900 px-5 py-2.5 border border-espresso-900/15 rounded-full transition-all duration-300 hover:border-terracotta/50 hover:text-terracotta hover:-translate-y-1 hover:shadow-md">Vercel</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="extracciones" class="py-24 px-6 max-w-6xl mx-auto border-t border-espresso-900/10">
+        <h2 class="font-mono text-xs text-terracotta mb-4 uppercase tracking-[0.4em]" data-reveal>03. Extracciones</h2>
+        <h3 class="font-display text-2xl md:text-3xl text-espresso-950 leading-snug mb-12" data-reveal>Cuatro proyectos, cuatro recetas distintas.</h3>
+
+        <div id="extracciones-list" class="space-y-10"></div>
+    </section>
+
+    <footer id="pedido" class="py-32 px-6 text-center border-t border-espresso-900/10">
+        <div class="max-w-3xl mx-auto" data-reveal>
+            <h2 class="font-mono text-xs text-terracotta mb-6 uppercase tracking-[0.4em]">04. El Pedido</h2>
+            <h3 class="font-display text-2xl md:text-4xl text-espresso-950 mb-6">Hacé tu pedido.</h3>
+            <p class="text-espresso-800/70 mb-10 max-w-md mx-auto">
+                ¿Tenés un proyecto, una idea, o simplemente querés hablar de café y código? Escribime.
+            </p>
+            <div class="inline-block bg-espresso-950 px-8 md:px-12 py-5 rounded-full transition-all duration-300 hover:bg-terracotta hover:scale-105 hover:shadow-xl">
+                <a href="mailto:tiasigdev@gmail.com" class="text-cream font-mono text-sm md:text-base tracking-widest">
+                    tiasigdev@gmail.com
+                </a>
+            </div>
+            <div class="mt-28 pt-10 border-t border-espresso-900/10 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="font-mono text-[10px] text-espresso-700/50 tracking-[0.3em] uppercase">© 2026 Matías Ignacio Campos</p>
+                <div class="flex gap-8 font-mono text-[10px] text-espresso-900 tracking-widest uppercase">
+                    <a href="https://www.linkedin.com/in/matias-ignacio-campos-a71837376/" target="_blank" rel="noopener noreferrer" class="transition-all duration-300 hover:text-terracotta hover:-translate-y-0.5 inline-block">LinkedIn</a>
+                    <a href="https://github.com/ignacamposs" target="_blank" rel="noopener noreferrer" class="transition-all duration-300 hover:text-terracotta hover:-translate-y-0.5 inline-block">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>

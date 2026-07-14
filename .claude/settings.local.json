@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls \"d:\\\\Desarrollo\\\\Estudio 2026\\\\mi-portfolio\\\\\" --name)",
+      "Read(//d/Desarrollo/Estudio 2026/**)",
+      "WebFetch(domain:portfolio-igna-campos.vercel.app)"
+    ]
+  }
+}
