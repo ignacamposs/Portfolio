@@ -24,7 +24,7 @@
     <div class="bg-[#1d1a16] text-[#f6f1e7] text-xs sm:text-sm">
         <div class="max-w-7xl mx-auto px-5 py-2 flex items-center justify-between gap-4">
             <p><strong class="text-[#ff8a50]">Sitio demo</strong> · Agencia ficticia creada por Matías Campos</p>
-            <a href="/" class="shrink-0 font-semibold underline underline-offset-2 hover:no-underline">← Ver portfolio</a>
+            <a href="/" class="shrink-0 font-semibold underline underline-offset-2 hover:no-underline py-2 -my-2">← Ver portfolio</a>
         </div>
     </div>
 
@@ -124,7 +124,7 @@
                 </label>
                 <label class="block">
                     <span class="flex justify-between text-xs font-semibold uppercase tracking-wider text-[#1d1a16]/70 mb-3">Precio <span id="f-max-label" class="normal-case tracking-normal text-[#1d1a16]">Sin límite</span></span>
-                    <input id="f-max" type="range" min="10000" max="40000" step="1000" value="40000" class="w-full">
+                    <input id="f-max" type="range" min="10000" max="40000" step="1000" value="40000" class="w-full h-8">
                 </label>
                 <div>
                     <span class="block text-xs font-semibold uppercase tracking-wider text-[#1d1a16]/70 mb-1.5">Caja</span>
@@ -191,7 +191,7 @@
                         <legend class="font-head text-2xl font-bold mb-5">¿Cómo está?</legend>
                         <label class="block">
                             <span class="flex justify-between text-sm font-medium mb-3">Kilometraje <span id="t-km-label" class="font-semibold"></span></span>
-                            <input id="t-km" type="range" min="0" max="250000" step="5000" value="60000" class="w-full">
+                            <input id="t-km" type="range" min="0" max="250000" step="5000" value="60000" class="w-full h-8">
                         </label>
                         <div>
                             <span class="block text-sm font-medium mb-2">Estado general</span>
@@ -212,7 +212,7 @@
                         </label>
                         <label class="block">
                             <span class="block text-sm font-medium mb-2">WhatsApp</span>
-                            <input name="telefono" type="tel" required pattern="[0-9 +()-]{8,}" autocomplete="tel" placeholder="11 2345 6789" class="w-full bg-white rounded-xl px-4 py-3 ring-1 ring-black/10 outline-none focus:ring-2 focus:ring-[#c2410c]">
+                            <input name="telefono" type="tel" required pattern="[0-9 +\-\(\)]{8,}" title="Ingresá al menos 8 números" autocomplete="tel" placeholder="11 2345 6789" class="w-full bg-white rounded-xl px-4 py-3 ring-1 ring-black/10 outline-none focus:ring-2 focus:ring-[#c2410c]">
                         </label>
                     </fieldset>
 
@@ -249,8 +249,8 @@
         </div>
         <div>
             <p class="font-semibold text-[#1d1a16] mb-2">¿Querés una web así para tu agencia?</p>
-            <a href="https://wa.me/5492944702059" data-whatsapp target="_blank" rel="noopener noreferrer" class="block text-[#c2410c] font-semibold hover:underline">WhatsApp → 294 470-2059</a>
-            <a href="mailto:tiasigdev@gmail.com?subject=Web%20para%20agencia%20de%20autos" class="block text-[#c2410c] font-semibold hover:underline">Mail → tiasigdev@gmail.com</a>
+            <a href="https://wa.me/5492944702059" data-whatsapp target="_blank" rel="noopener noreferrer" class="block py-2 text-[#c2410c] font-semibold hover:underline">WhatsApp → 294 470-2059</a>
+            <a href="mailto:tiasigdev@gmail.com?subject=Web%20para%20agencia%20de%20autos" class="block py-2 text-[#c2410c] font-semibold hover:underline">Mail → tiasigdev@gmail.com</a>
         </div>
         <p class="md:col-span-3 text-[11px] text-[#1d1a16]/70">Diseño y desarrollo: Matías Ignacio Campos. Fotos: Unsplash. Agencia, stock y precios son ficticios; las marcas pertenecen a sus dueños.</p>
     </footer>
@@ -258,13 +258,13 @@
     <!-- Barra de comparación -->
     <div id="compare-bar" class="fixed bottom-4 inset-x-4 z-50 translate-y-[150%] transition-transform duration-300" inert>
         <div class="max-w-xl mx-auto bg-[#1d1a16] text-white rounded-2xl shadow-2xl p-3 pl-4 flex items-center gap-3">
-            <div id="compare-thumbs" class="flex -space-x-3"></div>
+            <div id="compare-thumbs" class="flex shrink-0 -space-x-3"></div>
             <div class="flex-1 min-w-0">
                 <p class="text-sm font-semibold">Comparar</p>
                 <p id="compare-label" class="text-xs text-white/75"></p>
             </div>
-            <button id="compare-clear" type="button" class="text-xs text-white/75 hover:text-white px-2">Limpiar</button>
-            <button id="compare-open" type="button" class="font-semibold text-sm bg-[#c2410c] px-4 py-2.5 rounded-xl disabled:opacity-40 disabled:cursor-not-allowed">Ver comparación</button>
+            <button id="compare-clear" type="button" class="shrink-0 text-xs text-white/75 hover:text-white px-2 py-3">Limpiar</button>
+            <button id="compare-open" type="button" class="shrink-0 font-semibold text-sm bg-[#c2410c] px-4 py-3 rounded-xl disabled:opacity-40 disabled:cursor-not-allowed"><span class="sm:hidden">Ver</span><span class="hidden sm:inline">Ver comparación</span></button>
         </div>
     </div>
 
@@ -274,6 +274,7 @@
                 <h2 class="font-head text-2xl md:text-3xl font-extrabold">Comparación</h2>
                 <button id="compare-close" type="button" class="w-10 h-10 grid place-items-center rounded-full bg-white ring-1 ring-black/10 text-lg" aria-label="Cerrar">✕</button>
             </div>
+            <p id="compare-hint" class="sm:hidden text-xs font-medium text-[#1d1a16]/70 mb-3">Deslizá para ver todos →</p>
             <div class="overflow-x-auto">
                 <table id="compare-table" class="w-full min-w-[520px] table-fixed"></table>
             </div>

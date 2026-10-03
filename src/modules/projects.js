@@ -11,7 +11,7 @@ function projectRow(project, index) {
 
   const linkButton = project.link
     ? `<a href="${project.link}" target="_blank" rel="noopener noreferrer"
-         class="group/link inline-flex items-center gap-2 text-sm font-medium text-ink border-b border-ink pb-0.5 transition-colors hover:text-accent hover:border-accent">
+         class="group/link inline-flex items-center gap-2 min-h-[44px] text-sm font-medium text-ink underline underline-offset-4 decoration-ink/40 transition-colors hover:text-accent hover:decoration-accent">
          Ver proyecto <span aria-hidden="true" class="inline-block transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5">&#8599;</span>
        </a>`
     : `<span class="text-sm text-ink-500">Proyecto privado de cliente</span>`;

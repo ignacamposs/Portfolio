@@ -24,13 +24,13 @@
     <div class="bg-emerald-400 text-neutral-950 text-xs sm:text-sm">
         <div class="max-w-7xl mx-auto px-5 py-2 flex items-center justify-between gap-4">
             <p><strong>Sitio demo</strong> · Concesionaria ficticia creada por Matías Campos</p>
-            <a href="/" class="shrink-0 font-semibold underline underline-offset-2 hover:no-underline">← Ver portfolio</a>
+            <a href="/" class="shrink-0 font-semibold underline underline-offset-2 hover:no-underline py-2 -my-2">← Ver portfolio</a>
         </div>
     </div>
 
     <nav class="sticky top-0 z-50 bg-neutral-950/80 backdrop-blur-md border-b border-white/10">
         <div class="max-w-7xl mx-auto px-5 h-16 flex items-center justify-between">
-            <a href="#" class="font-head text-xl font-bold tracking-tight">ORBE<span class="text-emerald-400">.</span>MOTORS</a>
+            <a href="#" class="font-head text-xl font-bold tracking-tight py-2">ORBE<span class="text-emerald-400">.</span>MOTORS</a>
             <div class="hidden md:flex items-center gap-8 text-sm text-neutral-300">
                 <a href="#modelos" class="hover:text-white transition-colors">Modelos</a>
                 <a href="#financiacion" class="hover:text-white transition-colors">Financiación</a>
@@ -70,9 +70,9 @@
             </div>
 
             <dl class="mt-16 grid grid-cols-3 gap-6 max-w-xl border-t border-white/15 pt-6">
-                <div><dt class="text-xs text-neutral-400 mb-1">Modelos</dt><dd class="font-head text-xl sm:text-2xl md:text-3xl font-semibold">6</dd></div>
-                <div><dt class="text-xs text-neutral-400 mb-1">Autonomía hasta</dt><dd class="font-head text-xl sm:text-2xl md:text-3xl font-semibold">1.100 km</dd></div>
-                <div><dt class="text-xs text-neutral-400 mb-1">Financiación</dt><dd class="font-head text-xl sm:text-2xl md:text-3xl font-semibold">60 cuotas</dd></div>
+                <div><dt class="text-xs text-neutral-400 mb-1">Modelos</dt><dd class="font-head text-lg sm:text-2xl md:text-3xl font-semibold whitespace-nowrap">6</dd></div>
+                <div><dt class="text-xs text-neutral-400 mb-1">Autonomía hasta</dt><dd class="font-head text-lg sm:text-2xl md:text-3xl font-semibold whitespace-nowrap">1.100 km</dd></div>
+                <div><dt class="text-xs text-neutral-400 mb-1">Financiación</dt><dd class="font-head text-lg sm:text-2xl md:text-3xl font-semibold whitespace-nowrap">60 cuotas</dd></div>
             </dl>
         </div>
     </header>
@@ -104,7 +104,7 @@
                 </div>
                 <label class="lg:ml-auto flex items-center gap-2 text-sm text-neutral-400">
                     Ordenar
-                    <select id="orden" class="bg-neutral-900 border border-white/20 rounded-full px-4 py-2 text-neutral-100">
+                    <select id="orden" class="bg-neutral-900 border border-white/20 rounded-full px-4 py-2 text-base text-neutral-100">
                         <option value="relevancia">Destacados</option>
                         <option value="menor">Menor precio</option>
                         <option value="mayor">Mayor precio</option>
@@ -131,7 +131,7 @@
                         </label>
                         <label class="block">
                             <span class="flex justify-between text-sm text-neutral-400 mb-3">Anticipo <span id="sim-anticipo-label" class="text-neutral-100 font-medium"></span></span>
-                            <input id="sim-anticipo" type="range" min="10" max="70" step="5" value="30" class="w-full">
+                            <input id="sim-anticipo" type="range" min="10" max="70" step="5" value="30" class="w-full h-8">
                         </label>
                         <div>
                             <span class="block text-sm text-neutral-400 mb-2">Plazo</span>
@@ -202,7 +202,7 @@
                     </label>
                     <label class="block">
                         <span class="block text-sm font-medium mb-1.5">Teléfono</span>
-                        <input name="telefono" type="tel" required pattern="[0-9 +()-]{8,}" autocomplete="tel" class="w-full rounded-xl bg-white/90 px-4 py-3 placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-neutral-950" placeholder="11 2345 6789">
+                        <input name="telefono" type="tel" required pattern="[0-9 +\-\(\)]{8,}" title="Ingresá al menos 8 números" autocomplete="tel" class="w-full rounded-xl bg-white/90 px-4 py-3 placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-neutral-950" placeholder="11 2345 6789">
                     </label>
                     <label class="block">
                         <span class="block text-sm font-medium mb-1.5">Modelo</span>
@@ -238,8 +238,8 @@
             </div>
             <div>
                 <p class="text-neutral-100 font-medium mb-2">¿Querés una web así para tu concesionaria?</p>
-                <a href="https://wa.me/5492944702059" data-whatsapp target="_blank" rel="noopener noreferrer" class="block text-emerald-400 font-semibold hover:underline">WhatsApp → 294 470-2059</a>
-                <a href="mailto:tiasigdev@gmail.com?subject=Web%20para%20concesionaria" class="block text-emerald-400 font-semibold hover:underline">Mail → tiasigdev@gmail.com</a>
+                <a href="https://wa.me/5492944702059" data-whatsapp target="_blank" rel="noopener noreferrer" class="block py-2 text-emerald-400 font-semibold hover:underline">WhatsApp → 294 470-2059</a>
+                <a href="mailto:tiasigdev@gmail.com?subject=Web%20para%20concesionaria" class="block py-2 text-emerald-400 font-semibold hover:underline">Mail → tiasigdev@gmail.com</a>
             </div>
         </div>
         <p class="max-w-7xl mx-auto px-5 pb-8 text-[11px] text-neutral-400">Diseño y desarrollo: Matías Ignacio Campos. Fotos: Unsplash. Marcas, modelos y precios son ficticios.</p>

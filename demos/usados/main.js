@@ -67,7 +67,7 @@ function card(c) {
         </ul>
         <div class="flex items-center justify-between gap-3">
           <p class="font-head text-2xl font-extrabold">${usd(c.precio)}</p>
-          <label class="inline-flex items-center gap-2 text-sm font-medium cursor-pointer select-none">
+          <label class="inline-flex items-center gap-2 text-sm font-medium cursor-pointer select-none py-3 -my-3 pl-3 -ml-3">
             <input type="checkbox" data-compare="${c.id}" ${cmp ? 'checked' : ''} class="w-4 h-4 accent-[#c2410c]">
             Comparar
           </label>
@@ -198,13 +198,14 @@ function renderCompareBar() {
   const n = compare.size;
   bar.classList.toggle('translate-y-[150%]', n === 0);
   bar.inert = n === 0;
-  waBtn.style.transform = n === 0 ? '' : 'translateY(-5.5rem)';
   document.getElementById('compare-thumbs').innerHTML = [...compare]
     .map((id) => cars.find((c) => c.id === id))
-    .map((c) => `<img src="${IMG}/${c.img}-sm.webp" alt="" width="48" height="48" class="w-12 h-12 rounded-xl object-cover ring-2 ring-[#1d1a16]">`)
+    .map((c) => `<img src="${IMG}/${c.img}-sm.webp" alt="" width="40" height="40" class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl object-cover ring-2 ring-[#1d1a16]">`)
     .join('');
   document.getElementById('compare-label').textContent = `${n} de ${MAX_COMPARE} seleccionados`;
   document.getElementById('compare-open').disabled = n < 2;
+  // Subimos el botón de WhatsApp según el alto real de la barra (ya con su contenido)
+  waBtn.style.transform = n === 0 ? '' : `translateY(-${bar.firstElementChild.offsetHeight + 12}px)`;
 }
 
 function renderCompareTable() {
@@ -246,6 +247,7 @@ function renderCompareTable() {
 
 document.getElementById('compare-open').addEventListener('click', () => {
   renderCompareTable();
+  document.getElementById('compare-hint').classList.toggle('invisible', compare.size < 3);
   dialog.showModal();
 });
 document.getElementById('compare-close').addEventListener('click', () => dialog.close());
