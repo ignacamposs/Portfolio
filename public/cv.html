@@ -28,8 +28,8 @@
 
         /* ── SIDEBAR ── */
         .sidebar {
-            background: #080f02;
-            color: #f7fee7;
+            background: #14140f;
+            color: #f5f4f0;
             padding: 36px 22px;
         }
 
@@ -37,7 +37,7 @@
             font-size: 8.5px;
             letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: #84cc16;
+            color: #9aa6ff;
             font-weight: 600;
             margin-top: 26px;
             margin-bottom: 10px;
@@ -47,9 +47,9 @@
 
         .skill-item {
             font-size: 12px;
-            color: rgba(247, 254, 231, 0.65);
+            color: rgba(245, 244, 240, 0.65);
             padding: 5px 0;
-            border-bottom: 1px solid rgba(132, 204, 22, 0.08);
+            border-bottom: 1px solid rgba(47, 69, 232, 0.08);
         }
 
         .skill-item:last-child { border-bottom: none; }
@@ -58,24 +58,24 @@
 
         .lang-name {
             font-size: 12px;
-            color: #f7fee7;
+            color: #f5f4f0;
             font-weight: 500;
         }
 
         .lang-level {
             font-size: 10px;
-            color: rgba(247, 254, 231, 0.4);
+            color: rgba(245, 244, 240, 0.4);
         }
 
         .contact-item {
             font-size: 10.5px;
-            color: rgba(247, 254, 231, 0.55);
+            color: rgba(245, 244, 240, 0.55);
             margin-bottom: 7px;
             word-break: break-all;
         }
 
         .contact-item a {
-            color: #84cc16;
+            color: #9aa6ff;
             text-decoration: none;
         }
 
@@ -95,7 +95,7 @@
         .name {
             font-size: 26px;
             font-weight: 700;
-            color: #080f02;
+            color: #14140f;
             letter-spacing: -0.02em;
             margin-bottom: 3px;
         }
@@ -105,7 +105,7 @@
             font-weight: 600;
             letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: #84cc16;
+            color: #2f45e8;
         }
 
         .location {
@@ -121,7 +121,7 @@
             font-size: 8.5px;
             letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: #84cc16;
+            color: #2f45e8;
             font-weight: 600;
             margin-bottom: 12px;
         }
@@ -149,12 +149,12 @@
         .project-name {
             font-size: 13px;
             font-weight: 600;
-            color: #080f02;
+            color: #14140f;
         }
 
         .project-link {
             font-size: 10px;
-            color: #84cc16;
+            color: #2f45e8;
             text-decoration: none;
             flex-shrink: 0;
             margin-left: 8px;
@@ -184,7 +184,7 @@
         .exp-role {
             font-size: 13px;
             font-weight: 600;
-            color: #080f02;
+            color: #14140f;
         }
 
         .exp-date {
@@ -204,7 +204,7 @@
         .edu-title {
             font-size: 13px;
             font-weight: 600;
-            color: #080f02;
+            color: #14140f;
             margin-bottom: 2px;
         }
 
@@ -228,7 +228,9 @@
         <div class="skill-item">CSS3</div>
         <div class="skill-item">JavaScript</div>
         <div class="skill-item">Tailwind CSS</div>
-        <div class="skill-item">Git</div>
+        <div class="skill-item">Vite</div>
+        <div class="skill-item">Git &amp; GitHub</div>
+        <div class="skill-item">Firebase</div>
         <div class="skill-item">Responsive Design</div>
         <div class="skill-item">Vercel</div>
 
@@ -249,7 +251,13 @@
         <div class="sidebar-section-title">Contacto</div>
         <div class="contact-item">Buenos Aires, Argentina</div>
         <div class="contact-item">
+            <a href="https://wa.me/5492944702059">WhatsApp<br><span style="white-space:nowrap">+54 9 294 470-2059</span></a>
+        </div>
+        <div class="contact-item">
             <a href="mailto:tiasigdev@gmail.com">tiasigdev@gmail.com</a>
+        </div>
+        <div class="contact-item">
+            <a href="https://portfolio-igna-campos.vercel.app">portfolio-igna-campos<br>.vercel.app</a>
         </div>
         <div class="contact-item">
             <a href="https://github.com/ignacamposs">github.com/ignacamposs</a>
@@ -269,23 +277,38 @@
         </div>
 
         <div class="section">
+            <div class="section-title">Perfil</div>
+            <div class="project-desc">Desarrollador front-end autodidacta. Construyo sitios rápidos, accesibles y pensados para el celular, con foco en convertir visitas en consultas. Experiencia en sitios para el rubro automotor y en integrar IA en productos web.</div>
+        </div>
+
+        <div class="section">
             <div class="section-title">Proyectos</div>
 
             <div class="project">
                 <div class="project-header">
                     <div class="project-name">Zona Autos Argentina</div>
+                    <a href="https://www.zonaautosarg.com/" class="project-link">↗ zonaautosarg.com</a>
                 </div>
-                <div class="project-stack">HTML · CSS3 · JavaScript · Tailwind CSS</div>
-                <div class="project-desc">Plataforma dinámica para el mercado automotriz argentino. Mobile first, performance A+ en GTmetrix.</div>
+                <div class="project-stack">Proyecto freelance · HTML · CSS3 · JavaScript · Tailwind CSS</div>
+                <div class="project-desc">Plataforma para el mercado automotriz argentino. Mobile first, performance A+ en GTmetrix.</div>
             </div>
 
             <div class="project">
                 <div class="project-header">
-                    <div class="project-name">Espresso Master</div>
-                    <a href="https://brew-espresso.vercel.app/" class="project-link">↗ brew-espresso.vercel.app</a>
+                    <div class="project-name">NARO</div>
+                    <a href="https://gastro-ia-one.vercel.app/landing.html" class="project-link">↗ gastro-ia-one.vercel.app</a>
                 </div>
-                <div class="project-stack">Vanilla JS · Local Storage</div>
-                <div class="project-desc">Herramienta de precisión para baristas. Cálculo de ratios en tiempo real, temporizador de extracción y registro de historial.</div>
+                <div class="project-stack">Producto propio · JavaScript · Firebase · Claude API</div>
+                <div class="project-desc">Sistema de gestión gastronómica: punto de venta y cocina en tiempo real, facturación AFIP y un asistente con IA que analiza ventas y stock.</div>
+            </div>
+
+            <div class="project">
+                <div class="project-header">
+                    <div class="project-name">Orbe Motors · Garage Sur (demos)</div>
+                    <a href="https://portfolio-igna-campos.vercel.app/#proyectos" class="project-link">↗ ver en el portfolio</a>
+                </div>
+                <div class="project-stack">HTML · Tailwind CSS · JavaScript · Vite</div>
+                <div class="project-desc">Sitios demo para concesionarias de 0 km y agencias de usados: catálogo con filtros, simulador de cuotas, comparador, favoritos y tasación online. 97–100 en velocidad mobile (Lighthouse).</div>
             </div>
 
             <div class="project">
@@ -293,35 +316,8 @@
                     <div class="project-name">Learning English</div>
                     <a href="https://estudia-ingles.vercel.app/" class="project-link">↗ estudia-ingles.vercel.app</a>
                 </div>
-                <div class="project-stack">Vanilla JS · Local Storage</div>
+                <div class="project-stack">JavaScript · Local Storage · IA</div>
                 <div class="project-desc">App de estudio de inglés con asistencia de IA. Guía al usuario paso a paso de forma gratuita.</div>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">Experiencia</div>
-
-            <div class="exp-item">
-                <div class="exp-header">
-                    <div class="exp-role">Barista — Melcha Café</div>
-                    <div class="exp-date">2024 — Presente</div>
-                </div>
-                <div class="exp-place">Buenos Aires</div>
-            </div>
-
-            <div class="exp-item">
-                <div class="exp-header">
-                    <div class="exp-role">Barista — Cafe.te · Ciao Cacao</div>
-                </div>
-                <div class="exp-place">Buenos Aires</div>
-            </div>
-
-            <div class="exp-item">
-                <div class="exp-header">
-                    <div class="exp-role">Barista</div>
-                    <div class="exp-date">2021 — 2024</div>
-                </div>
-                <div class="exp-place">Ristretto · Doble Cero · Latice Café · Ristretto Catedral · The Coffee Store — Bariloche</div>
             </div>
         </div>
 
@@ -329,6 +325,17 @@
             <div class="section-title">Educación</div>
             <div class="edu-title">Autodidacta — Desarrollo Web Front-End</div>
             <div class="edu-desc">Aprendizaje a través de documentación oficial, cursos online y proyectos propios. Foco en HTML, CSS, JavaScript y Tailwind CSS.</div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Otra experiencia</div>
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div class="exp-role">Atención al cliente en gastronomía</div>
+                    <div class="exp-date">2021 — Presente</div>
+                </div>
+                <div class="exp-place">Bariloche y Buenos Aires</div>
+            </div>
         </div>
 
     </main>

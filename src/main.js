@@ -6,6 +6,7 @@ import '@fontsource/geist/latin-600.css';
 import '@fontsource/geist-mono/latin-400.css';
 import '@fontsource/geist-mono/latin-500.css';
 import './style.css';
+import { inject } from '@vercel/analytics';
 import { initNav } from './modules/nav.js';
 import { initScrollReveal } from './modules/scroll-reveal.js';
 import { mountProjects } from './modules/projects.js';
@@ -31,3 +32,5 @@ document.querySelectorAll('[data-whatsapp]').forEach((a) => {
 
 initNav();
 initScrollReveal();
+
+inject();

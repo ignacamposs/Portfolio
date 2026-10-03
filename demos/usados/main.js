@@ -6,6 +6,7 @@ import '@fontsource/bricolage-grotesque/latin-600.css';
 import '@fontsource/bricolage-grotesque/latin-700.css';
 import '@fontsource/bricolage-grotesque/latin-800.css';
 import './style.css';
+import { inject } from '@vercel/analytics';
 import { mountWhatsAppButton, whatsappUrl } from '../../src/modules/whatsapp.js';
 
 const IMG = '/demos/usados/img';
@@ -341,3 +342,5 @@ document.querySelectorAll('[data-whatsapp]').forEach((a) => (a.href = whatsappUr
 
 showStep(0);
 render();
+
+inject();

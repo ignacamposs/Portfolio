@@ -5,6 +5,7 @@ import '@fontsource/manrope/latin-700.css';
 import '@fontsource/sora/latin-600.css';
 import '@fontsource/sora/latin-700.css';
 import './style.css';
+import { inject } from '@vercel/analytics';
 import { mountWhatsAppButton, whatsappUrl } from '../../src/modules/whatsapp.js';
 
 const IMG = '/demos/concesionaria/img';
@@ -192,3 +193,5 @@ document.querySelectorAll('[data-whatsapp]').forEach((a) => (a.href = whatsappUr
 
 renderGrid();
 renderSim();
+
+inject();
