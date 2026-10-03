@@ -6,10 +6,8 @@
     <title>Garage Sur | Demo de agencia de usados — Matías Campos</title>
     <meta name="description" content="Sitio demo de una agencia de autos usados ficticia: buscador, favoritos, comparador y tasación online. Diseñado y desarrollado por Matías Ignacio Campos.">
     <meta name="robots" content="noindex">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="/demos/usados/img/hero-sm.webp" imagesrcset="/demos/usados/img/hero-sm.webp 800w, /demos/usados/img/hero-lg.webp 1600w" imagesizes="(min-width: 1280px) 1240px, 100vw" fetchpriority="high">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23c2410c'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-size='19' font-weight='bold' fill='white' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
 </head>
 <body>
 
@@ -24,17 +22,17 @@
     <nav class="sticky top-0 z-40 bg-[#f6f1e7]/90 backdrop-blur-md border-b border-black/5">
         <div class="max-w-7xl mx-auto px-5 h-16 flex items-center justify-between gap-4">
             <a href="#" class="flex items-center gap-2 font-head text-xl font-extrabold tracking-tight">
-                <span class="grid place-items-center w-8 h-8 rounded-lg bg-[#f05a1a] text-white text-base">G</span>
+                <span class="grid place-items-center w-8 h-8 rounded-lg bg-[#c2410c] text-white text-base">G</span>
                 Garage Sur
             </a>
             <div class="hidden md:flex items-center gap-7 text-sm font-medium">
-                <a href="#autos" class="hover:text-[#f05a1a] transition-colors">Autos</a>
-                <a href="#tasacion" class="hover:text-[#f05a1a] transition-colors">Tasá tu usado</a>
-                <a href="#confianza" class="hover:text-[#f05a1a] transition-colors">Por qué nosotros</a>
+                <a href="#autos" class="hover:text-[#c2410c] transition-colors">Autos</a>
+                <a href="#tasacion" class="hover:text-[#c2410c] transition-colors">Tasá tu usado</a>
+                <a href="#confianza" class="hover:text-[#c2410c] transition-colors">Por qué nosotros</a>
             </div>
             <div class="flex items-center gap-2">
-                <button id="nav-favs" type="button" class="inline-flex items-center gap-1.5 text-sm font-semibold bg-white ring-1 ring-black/10 px-3.5 py-2 rounded-full hover:ring-[#f05a1a] transition" aria-label="Ver favoritos">
-                    <span class="text-[#f05a1a]">♥</span> <span id="fav-count">0</span>
+                <button id="nav-favs" type="button" class="inline-flex items-center gap-1.5 text-sm font-semibold bg-white ring-1 ring-black/10 px-3.5 py-2 rounded-full hover:ring-[#c2410c] transition">
+                    <span class="text-[#c2410c]" aria-hidden="true">♥</span><span class="sr-only">Favoritos:</span> <span id="fav-count">0</span>
                 </button>
                 <button id="menu-btn" class="md:hidden p-2 -mr-2" aria-label="Menú" aria-expanded="false" aria-controls="menu">
                     <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M4 8h16M4 16h16"/></svg>
@@ -51,7 +49,7 @@
     <!-- Hero -->
     <header class="max-w-7xl mx-auto px-5 pt-8 md:pt-12">
         <div class="relative rounded-[2rem] overflow-hidden min-h-[560px] md:min-h-[600px] flex items-end">
-            <img src="/demos/usados/img/hero.jpg" alt="" class="absolute inset-0 w-full h-full object-cover">
+            <img src="/demos/usados/img/hero-sm.webp" srcset="/demos/usados/img/hero-sm.webp 800w, /demos/usados/img/hero-lg.webp 1600w" sizes="(min-width: 1280px) 1240px, 100vw" fetchpriority="high" alt="" class="absolute inset-0 w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-[#1d1a16]/85 via-[#1d1a16]/30 to-transparent"></div>
             <div class="relative w-full p-6 sm:p-10 md:p-14 text-white">
                 <p class="inline-block text-xs font-semibold bg-white/15 backdrop-blur px-3 py-1.5 rounded-full mb-5">✓ Todos revisados en 150 puntos</p>
@@ -61,11 +59,11 @@
 
                 <form id="hero-search" class="bg-white text-[#1d1a16] rounded-2xl p-2 flex flex-col sm:flex-row gap-2 max-w-3xl" role="search">
                     <label class="flex-1 flex flex-col px-4 py-2">
-                        <span class="text-[11px] font-semibold uppercase tracking-wider text-[#1d1a16]/50">Marca o modelo</span>
+                        <span class="text-[11px] font-semibold uppercase tracking-wider text-[#1d1a16]/70">Marca o modelo</span>
                         <input name="q" type="search" placeholder="Ej: Corolla, Hilux, Golf…" class="bg-transparent outline-none text-base py-0.5">
                     </label>
                     <label class="sm:w-48 flex flex-col px-4 py-2 sm:border-l border-black/10">
-                        <span class="text-[11px] font-semibold uppercase tracking-wider text-[#1d1a16]/50">Presupuesto</span>
+                        <span class="text-[11px] font-semibold uppercase tracking-wider text-[#1d1a16]/70">Presupuesto</span>
                         <select name="max" class="bg-transparent outline-none text-base py-0.5">
                             <option value="40000">Sin límite</option>
                             <option value="15000">Hasta USD 15.000</option>
@@ -74,7 +72,7 @@
                             <option value="35000">Hasta USD 35.000</option>
                         </select>
                     </label>
-                    <button type="submit" class="font-semibold bg-[#f05a1a] text-white px-7 py-4 rounded-xl hover:bg-[#d94a0e] transition-colors">Buscar</button>
+                    <button type="submit" class="font-semibold bg-[#c2410c] text-white px-7 py-4 rounded-xl hover:bg-[#9a3412] transition-colors">Buscar</button>
                 </form>
             </div>
         </div>
@@ -84,19 +82,19 @@
     <section id="confianza" class="max-w-7xl mx-auto px-5 py-14">
         <ul class="grid grid-cols-2 lg:grid-cols-4 gap-4">
             <li class="bg-white rounded-2xl p-5 ring-1 ring-black/5">
-                <p class="font-head text-3xl font-extrabold text-[#f05a1a] mb-1">150</p>
+                <p class="font-head text-3xl font-extrabold text-[#c2410c] mb-1">150</p>
                 <p class="text-sm text-[#1d1a16]/70">puntos de inspección mecánica en cada auto</p>
             </li>
             <li class="bg-white rounded-2xl p-5 ring-1 ring-black/5">
-                <p class="font-head text-3xl font-extrabold text-[#f05a1a] mb-1">6 meses</p>
+                <p class="font-head text-3xl font-extrabold text-[#c2410c] mb-1">6 meses</p>
                 <p class="text-sm text-[#1d1a16]/70">de garantía de motor y caja</p>
             </li>
             <li class="bg-white rounded-2xl p-5 ring-1 ring-black/5">
-                <p class="font-head text-3xl font-extrabold text-[#f05a1a] mb-1">$0</p>
+                <p class="font-head text-3xl font-extrabold text-[#c2410c] mb-1">$0</p>
                 <p class="text-sm text-[#1d1a16]/70">de gestoría: la transferencia corre por nuestra cuenta</p>
             </li>
             <li class="bg-white rounded-2xl p-5 ring-1 ring-black/5">
-                <p class="font-head text-3xl font-extrabold text-[#f05a1a] mb-1">24 h</p>
+                <p class="font-head text-3xl font-extrabold text-[#c2410c] mb-1">24 h</p>
                 <p class="text-sm text-[#1d1a16]/70">para tasar y tomar tu usado como parte de pago</p>
             </li>
         </ul>
@@ -107,20 +105,20 @@
         <section id="autos" class="max-w-7xl mx-auto px-5 pb-20">
             <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-2 mb-8">
                 <h2 class="font-head text-3xl md:text-5xl font-extrabold tracking-tight">Autos disponibles</h2>
-                <p id="count" class="text-sm text-[#1d1a16]/60" aria-live="polite"></p>
+                <p id="count" class="text-sm text-[#1d1a16]/70" aria-live="polite"></p>
             </div>
 
             <div class="bg-white rounded-2xl ring-1 ring-black/5 p-4 md:p-5 mb-8 grid md:grid-cols-[1fr_1fr_auto_auto] gap-4 md:gap-6 items-end">
                 <label class="block">
-                    <span class="block text-xs font-semibold uppercase tracking-wider text-[#1d1a16]/50 mb-1.5">Buscar</span>
-                    <input id="f-q" type="search" placeholder="Marca o modelo" class="w-full bg-[#f6f1e7] rounded-xl px-4 py-2.5 outline-none focus:ring-2 focus:ring-[#f05a1a]">
+                    <span class="block text-xs font-semibold uppercase tracking-wider text-[#1d1a16]/70 mb-1.5">Buscar</span>
+                    <input id="f-q" type="search" placeholder="Marca o modelo" class="w-full bg-[#f6f1e7] rounded-xl px-4 py-2.5 outline-none focus:ring-2 focus:ring-[#c2410c]">
                 </label>
                 <label class="block">
-                    <span class="flex justify-between text-xs font-semibold uppercase tracking-wider text-[#1d1a16]/50 mb-3">Precio <span id="f-max-label" class="normal-case tracking-normal text-[#1d1a16]">Sin límite</span></span>
+                    <span class="flex justify-between text-xs font-semibold uppercase tracking-wider text-[#1d1a16]/70 mb-3">Precio <span id="f-max-label" class="normal-case tracking-normal text-[#1d1a16]">Sin límite</span></span>
                     <input id="f-max" type="range" min="10000" max="40000" step="1000" value="40000" class="w-full">
                 </label>
                 <div>
-                    <span class="block text-xs font-semibold uppercase tracking-wider text-[#1d1a16]/50 mb-1.5">Caja</span>
+                    <span class="block text-xs font-semibold uppercase tracking-wider text-[#1d1a16]/70 mb-1.5">Caja</span>
                     <div id="f-caja" class="inline-flex bg-[#f6f1e7] rounded-xl p-1" role="group" aria-label="Tipo de caja">
                         <button type="button" data-value="Todas" aria-pressed="true" class="text-sm font-medium px-3 py-1.5 rounded-lg bg-[#1d1a16] text-white">Todas</button>
                         <button type="button" data-value="Manual" aria-pressed="false" class="text-sm font-medium px-3 py-1.5 rounded-lg">Manual</button>
@@ -133,7 +131,7 @@
             <div id="grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
             <div id="empty" class="hidden text-center py-16">
                 <p class="font-head text-2xl font-bold mb-2">No encontramos autos con esos filtros</p>
-                <p class="text-[#1d1a16]/60">Probá ampliando el presupuesto o dejanos tu búsqueda y te avisamos cuando entre.</p>
+                <p class="text-[#1d1a16]/70">Probá ampliando el presupuesto o dejanos tu búsqueda y te avisamos cuando entre.</p>
             </div>
         </section>
 
@@ -149,10 +147,10 @@
                 <form id="wizard" class="bg-[#f6f1e7] text-[#1d1a16] rounded-3xl p-6 md:p-8" novalidate>
                     <div class="flex items-center justify-between text-sm mb-3">
                         <span id="wiz-step" class="font-semibold"></span>
-                        <span class="text-[#1d1a16]/50">Sin compromiso</span>
+                        <span class="text-[#1d1a16]/70">Sin compromiso</span>
                     </div>
                     <div class="h-1.5 bg-black/10 rounded-full mb-8 overflow-hidden">
-                        <div id="wiz-progress" class="h-full bg-[#f05a1a] rounded-full transition-all duration-500"></div>
+                        <div id="wiz-progress" class="h-full bg-[#c2410c] rounded-full transition-all duration-500"></div>
                     </div>
 
                     <!-- Paso 1 -->
@@ -161,20 +159,20 @@
                         <div>
                             <span class="block text-sm font-medium mb-2">Tipo de vehículo</span>
                             <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                                <label class="cursor-pointer"><input type="radio" name="segmento" value="chico" required class="peer sr-only"><span class="block text-center text-sm font-medium py-3 rounded-xl bg-white ring-1 ring-black/10 peer-checked:ring-2 peer-checked:ring-[#f05a1a] peer-focus-visible:ring-2 peer-focus-visible:ring-[#1d1a16]">🚗 Chico</span></label>
-                                <label class="cursor-pointer"><input type="radio" name="segmento" value="sedan" class="peer sr-only"><span class="block text-center text-sm font-medium py-3 rounded-xl bg-white ring-1 ring-black/10 peer-checked:ring-2 peer-checked:ring-[#f05a1a] peer-focus-visible:ring-2 peer-focus-visible:ring-[#1d1a16]">🚘 Sedán</span></label>
-                                <label class="cursor-pointer"><input type="radio" name="segmento" value="suv" class="peer sr-only"><span class="block text-center text-sm font-medium py-3 rounded-xl bg-white ring-1 ring-black/10 peer-checked:ring-2 peer-checked:ring-[#f05a1a] peer-focus-visible:ring-2 peer-focus-visible:ring-[#1d1a16]">🚙 SUV</span></label>
-                                <label class="cursor-pointer"><input type="radio" name="segmento" value="pickup" class="peer sr-only"><span class="block text-center text-sm font-medium py-3 rounded-xl bg-white ring-1 ring-black/10 peer-checked:ring-2 peer-checked:ring-[#f05a1a] peer-focus-visible:ring-2 peer-focus-visible:ring-[#1d1a16]">🛻 Pick-up</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="segmento" value="chico" required class="peer sr-only"><span class="block text-center text-sm font-medium py-3 rounded-xl bg-white ring-1 ring-black/10 peer-checked:ring-2 peer-checked:ring-[#c2410c] peer-focus-visible:ring-2 peer-focus-visible:ring-[#1d1a16]">🚗 Chico</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="segmento" value="sedan" class="peer sr-only"><span class="block text-center text-sm font-medium py-3 rounded-xl bg-white ring-1 ring-black/10 peer-checked:ring-2 peer-checked:ring-[#c2410c] peer-focus-visible:ring-2 peer-focus-visible:ring-[#1d1a16]">🚘 Sedán</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="segmento" value="suv" class="peer sr-only"><span class="block text-center text-sm font-medium py-3 rounded-xl bg-white ring-1 ring-black/10 peer-checked:ring-2 peer-checked:ring-[#c2410c] peer-focus-visible:ring-2 peer-focus-visible:ring-[#1d1a16]">🚙 SUV</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="segmento" value="pickup" class="peer sr-only"><span class="block text-center text-sm font-medium py-3 rounded-xl bg-white ring-1 ring-black/10 peer-checked:ring-2 peer-checked:ring-[#c2410c] peer-focus-visible:ring-2 peer-focus-visible:ring-[#1d1a16]">🛻 Pick-up</span></label>
                             </div>
                         </div>
                         <div class="grid sm:grid-cols-[1fr_auto] gap-4">
                             <label class="block">
                                 <span class="block text-sm font-medium mb-2">Marca y modelo</span>
-                                <input name="modelo" required placeholder="Ej: Ford Ka 1.5" class="w-full bg-white rounded-xl px-4 py-3 ring-1 ring-black/10 outline-none focus:ring-2 focus:ring-[#f05a1a]">
+                                <input name="modelo" required placeholder="Ej: Ford Ka 1.5" class="w-full bg-white rounded-xl px-4 py-3 ring-1 ring-black/10 outline-none focus:ring-2 focus:ring-[#c2410c]">
                             </label>
                             <label class="block">
                                 <span class="block text-sm font-medium mb-2">Año</span>
-                                <select id="t-anio" name="anio" class="w-full sm:w-32 bg-white rounded-xl px-4 py-3 ring-1 ring-black/10 outline-none focus:ring-2 focus:ring-[#f05a1a]"></select>
+                                <select id="t-anio" name="anio" class="w-full sm:w-32 bg-white rounded-xl px-4 py-3 ring-1 ring-black/10 outline-none focus:ring-2 focus:ring-[#c2410c]"></select>
                             </label>
                         </div>
                     </fieldset>
@@ -189,9 +187,9 @@
                         <div>
                             <span class="block text-sm font-medium mb-2">Estado general</span>
                             <div class="grid sm:grid-cols-3 gap-2">
-                                <label class="cursor-pointer"><input type="radio" name="estado" value="excelente" required class="peer sr-only"><span class="block p-4 rounded-xl bg-white ring-1 ring-black/10 peer-checked:ring-2 peer-checked:ring-[#f05a1a] peer-focus-visible:ring-2 peer-focus-visible:ring-[#1d1a16]"><strong class="block">Excelente</strong><span class="text-xs text-[#1d1a16]/60">Sin detalles, service al día</span></span></label>
-                                <label class="cursor-pointer"><input type="radio" name="estado" value="bueno" class="peer sr-only"><span class="block p-4 rounded-xl bg-white ring-1 ring-black/10 peer-checked:ring-2 peer-checked:ring-[#f05a1a] peer-focus-visible:ring-2 peer-focus-visible:ring-[#1d1a16]"><strong class="block">Bueno</strong><span class="text-xs text-[#1d1a16]/60">Detalles menores de uso</span></span></label>
-                                <label class="cursor-pointer"><input type="radio" name="estado" value="regular" class="peer sr-only"><span class="block p-4 rounded-xl bg-white ring-1 ring-black/10 peer-checked:ring-2 peer-checked:ring-[#f05a1a] peer-focus-visible:ring-2 peer-focus-visible:ring-[#1d1a16]"><strong class="block">Regular</strong><span class="text-xs text-[#1d1a16]/60">Necesita arreglos</span></span></label>
+                                <label class="cursor-pointer"><input type="radio" name="estado" value="excelente" required class="peer sr-only"><span class="block p-4 rounded-xl bg-white ring-1 ring-black/10 peer-checked:ring-2 peer-checked:ring-[#c2410c] peer-focus-visible:ring-2 peer-focus-visible:ring-[#1d1a16]"><strong class="block">Excelente</strong><span class="text-xs text-[#1d1a16]/70">Sin detalles, service al día</span></span></label>
+                                <label class="cursor-pointer"><input type="radio" name="estado" value="bueno" class="peer sr-only"><span class="block p-4 rounded-xl bg-white ring-1 ring-black/10 peer-checked:ring-2 peer-checked:ring-[#c2410c] peer-focus-visible:ring-2 peer-focus-visible:ring-[#1d1a16]"><strong class="block">Bueno</strong><span class="text-xs text-[#1d1a16]/70">Detalles menores de uso</span></span></label>
+                                <label class="cursor-pointer"><input type="radio" name="estado" value="regular" class="peer sr-only"><span class="block p-4 rounded-xl bg-white ring-1 ring-black/10 peer-checked:ring-2 peer-checked:ring-[#c2410c] peer-focus-visible:ring-2 peer-focus-visible:ring-[#1d1a16]"><strong class="block">Regular</strong><span class="text-xs text-[#1d1a16]/70">Necesita arreglos</span></span></label>
                             </div>
                         </div>
                     </fieldset>
@@ -201,29 +199,29 @@
                         <legend class="font-head text-2xl font-bold mb-5">¿A quién le enviamos la tasación?</legend>
                         <label class="block">
                             <span class="block text-sm font-medium mb-2">Nombre</span>
-                            <input name="nombre" required autocomplete="given-name" placeholder="Tu nombre" class="w-full bg-white rounded-xl px-4 py-3 ring-1 ring-black/10 outline-none focus:ring-2 focus:ring-[#f05a1a]">
+                            <input name="nombre" required autocomplete="given-name" placeholder="Tu nombre" class="w-full bg-white rounded-xl px-4 py-3 ring-1 ring-black/10 outline-none focus:ring-2 focus:ring-[#c2410c]">
                         </label>
                         <label class="block">
                             <span class="block text-sm font-medium mb-2">WhatsApp</span>
-                            <input name="telefono" type="tel" required pattern="[0-9 +()-]{8,}" autocomplete="tel" placeholder="11 2345 6789" class="w-full bg-white rounded-xl px-4 py-3 ring-1 ring-black/10 outline-none focus:ring-2 focus:ring-[#f05a1a]">
+                            <input name="telefono" type="tel" required pattern="[0-9 +()-]{8,}" autocomplete="tel" placeholder="11 2345 6789" class="w-full bg-white rounded-xl px-4 py-3 ring-1 ring-black/10 outline-none focus:ring-2 focus:ring-[#c2410c]">
                         </label>
                     </fieldset>
 
                     <!-- Resultado -->
                     <div data-step class="hidden text-center py-4" role="status">
-                        <p class="text-sm font-semibold text-[#1d1a16]/60 mb-2">Valor estimado de tu auto</p>
-                        <p id="wiz-result" class="font-head text-4xl md:text-5xl font-extrabold text-[#f05a1a] mb-4"></p>
+                        <p class="text-sm font-semibold text-[#1d1a16]/70 mb-2">Valor estimado de tu auto</p>
+                        <p id="wiz-result" class="font-head text-4xl md:text-5xl font-extrabold text-[#c2410c] mb-4"></p>
                         <p id="wiz-result-text" class="text-[#1d1a16]/70 max-w-md mx-auto mb-6"></p>
                         <div class="flex flex-wrap justify-center gap-3">
-                            <a href="#autos" class="font-semibold bg-[#1d1a16] text-white px-6 py-3 rounded-full hover:bg-[#f05a1a] transition-colors">Ver autos para cambiar</a>
+                            <a href="#autos" class="font-semibold bg-[#1d1a16] text-white px-6 py-3 rounded-full hover:bg-[#c2410c] transition-colors">Ver autos para cambiar</a>
                             <button id="wiz-restart" type="button" class="font-semibold px-6 py-3 rounded-full ring-1 ring-black/15 hover:ring-[#1d1a16]">Tasar otro</button>
                         </div>
-                        <p class="text-[11px] text-[#1d1a16]/40 mt-6">Estimación de ejemplo para esta demo.</p>
+                        <p class="text-[11px] text-[#1d1a16]/70 mt-6">Estimación de ejemplo para esta demo.</p>
                     </div>
 
                     <div id="wiz-nav" class="flex items-center justify-between mt-8">
                         <button id="wiz-back" type="button" class="font-semibold text-sm px-2 py-2 invisible">← Atrás</button>
-                        <button id="wiz-next" type="button" class="font-semibold bg-[#f05a1a] text-white px-7 py-3 rounded-full hover:bg-[#d94a0e] transition-colors">Siguiente</button>
+                        <button id="wiz-next" type="button" class="font-semibold bg-[#c2410c] text-white px-7 py-3 rounded-full hover:bg-[#9a3412] transition-colors">Siguiente</button>
                     </div>
                 </form>
             </div>
@@ -242,21 +240,21 @@
         </div>
         <div>
             <p class="font-semibold text-[#1d1a16] mb-2">¿Querés una web así para tu agencia?</p>
-            <a href="mailto:tiasigdev@gmail.com?subject=Web%20para%20agencia%20de%20autos" class="text-[#f05a1a] font-semibold hover:underline">Escribile a Matías → tiasigdev@gmail.com</a>
+            <a href="mailto:tiasigdev@gmail.com?subject=Web%20para%20agencia%20de%20autos" class="text-[#c2410c] font-semibold hover:underline">Escribile a Matías → tiasigdev@gmail.com</a>
         </div>
-        <p class="md:col-span-3 text-[11px] text-[#1d1a16]/40">Diseño y desarrollo: Matías Ignacio Campos. Fotos: Unsplash. Agencia, stock y precios son ficticios; las marcas pertenecen a sus dueños.</p>
+        <p class="md:col-span-3 text-[11px] text-[#1d1a16]/70">Diseño y desarrollo: Matías Ignacio Campos. Fotos: Unsplash. Agencia, stock y precios son ficticios; las marcas pertenecen a sus dueños.</p>
     </footer>
 
     <!-- Barra de comparación -->
-    <div id="compare-bar" class="fixed bottom-4 inset-x-4 z-50 translate-y-[150%] transition-transform duration-300" aria-hidden="true">
+    <div id="compare-bar" class="fixed bottom-4 inset-x-4 z-50 translate-y-[150%] transition-transform duration-300" inert>
         <div class="max-w-xl mx-auto bg-[#1d1a16] text-white rounded-2xl shadow-2xl p-3 pl-4 flex items-center gap-3">
             <div id="compare-thumbs" class="flex -space-x-3"></div>
             <div class="flex-1 min-w-0">
                 <p class="text-sm font-semibold">Comparar</p>
-                <p id="compare-label" class="text-xs text-white/60"></p>
+                <p id="compare-label" class="text-xs text-white/75"></p>
             </div>
-            <button id="compare-clear" type="button" class="text-xs text-white/60 hover:text-white px-2">Limpiar</button>
-            <button id="compare-open" type="button" class="font-semibold text-sm bg-[#f05a1a] px-4 py-2.5 rounded-xl disabled:opacity-40 disabled:cursor-not-allowed">Ver comparación</button>
+            <button id="compare-clear" type="button" class="text-xs text-white/75 hover:text-white px-2">Limpiar</button>
+            <button id="compare-open" type="button" class="font-semibold text-sm bg-[#c2410c] px-4 py-2.5 rounded-xl disabled:opacity-40 disabled:cursor-not-allowed">Ver comparación</button>
         </div>
     </div>
 

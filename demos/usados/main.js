@@ -1,3 +1,10 @@
+import '@fontsource/dm-sans/latin-400.css';
+import '@fontsource/dm-sans/latin-500.css';
+import '@fontsource/dm-sans/latin-600.css';
+import '@fontsource/dm-sans/latin-700.css';
+import '@fontsource/bricolage-grotesque/latin-600.css';
+import '@fontsource/bricolage-grotesque/latin-700.css';
+import '@fontsource/bricolage-grotesque/latin-800.css';
 import './style.css';
 
 const IMG = '/demos/usados/img';
@@ -45,13 +52,13 @@ function card(c) {
   return `
     <article class="group bg-white rounded-3xl overflow-hidden shadow-[0_1px_0_rgba(0,0,0,0.06)] ring-1 ring-black/5 transition hover:shadow-xl hover:-translate-y-0.5">
       <div class="relative aspect-[4/3] overflow-hidden bg-[#ece4d4]">
-        <img src="${IMG}/${c.img}.jpg" alt="${c.marca} ${c.modelo}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+        <img src="${IMG}/${c.img}-sm.webp" srcset="${IMG}/${c.img}-sm.webp 480w, ${IMG}/${c.img}-md.webp 720w, ${IMG}/${c.img}-lg.webp 900w" sizes="(min-width: 1024px) 300px, (min-width: 640px) 50vw, 100vw" width="480" height="360" alt="${c.marca} ${c.modelo}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async">
         ${c.badge ? `<span class="absolute top-3 left-3 text-xs font-semibold bg-white/95 text-[#1d1a16] px-3 py-1 rounded-full">${c.badge}</span>` : ''}
         <button type="button" data-fav="${c.id}" aria-pressed="${fav}" aria-label="${fav ? 'Quitar de' : 'Agregar a'} favoritos: ${c.marca} ${c.modelo}"
-          class="absolute top-3 right-3 w-10 h-10 grid place-items-center rounded-full bg-white/95 text-lg transition hover:scale-110 ${fav ? 'text-[#f05a1a]' : 'text-[#1d1a16]/40'}">${fav ? '♥' : '♡'}</button>
+          class="absolute top-3 right-3 w-10 h-10 grid place-items-center rounded-full bg-white/95 text-lg transition hover:scale-110 ${fav ? 'text-[#c2410c]' : 'text-[#1d1a16]/70'}">${fav ? '♥' : '♡'}</button>
       </div>
       <div class="p-5">
-        <p class="text-xs font-semibold uppercase tracking-wider text-[#1d1a16]/50 mb-1">${c.marca}</p>
+        <p class="text-xs font-semibold uppercase tracking-wider text-[#1d1a16]/70 mb-1">${c.marca}</p>
         <h3 class="font-head text-xl font-bold leading-tight mb-3">${c.modelo}</h3>
         <ul class="flex flex-wrap gap-x-3 gap-y-1 text-sm text-[#1d1a16]/70 mb-5">
           <li>${c.anio}</li><li aria-hidden="true">·</li><li>${kms(c.km)}</li><li aria-hidden="true">·</li><li>${c.caja}</li><li aria-hidden="true">·</li><li>${c.comb}</li>
@@ -59,7 +66,7 @@ function card(c) {
         <div class="flex items-center justify-between gap-3">
           <p class="font-head text-2xl font-extrabold">${usd(c.precio)}</p>
           <label class="inline-flex items-center gap-2 text-sm font-medium cursor-pointer select-none">
-            <input type="checkbox" data-compare="${c.id}" ${cmp ? 'checked' : ''} class="w-4 h-4 accent-[#f05a1a]">
+            <input type="checkbox" data-compare="${c.id}" ${cmp ? 'checked' : ''} class="w-4 h-4 accent-[#c2410c]">
             Comparar
           </label>
         </div>
@@ -121,9 +128,9 @@ const favToggle = document.getElementById('f-favs');
 function setSoloFavs(on) {
   state.soloFavs = on;
   favToggle.setAttribute('aria-pressed', String(on));
-  favToggle.classList.toggle('bg-[#f05a1a]', on);
+  favToggle.classList.toggle('bg-[#c2410c]', on);
   favToggle.classList.toggle('text-white', on);
-  favToggle.classList.toggle('border-[#f05a1a]', on);
+  favToggle.classList.toggle('border-[#c2410c]', on);
   render();
 }
 favToggle.addEventListener('click', () => setSoloFavs(!state.soloFavs));
@@ -188,10 +195,10 @@ const dialog = document.getElementById('compare-dialog');
 function renderCompareBar() {
   const n = compare.size;
   bar.classList.toggle('translate-y-[150%]', n === 0);
-  bar.setAttribute('aria-hidden', String(n === 0));
+  bar.inert = n === 0;
   document.getElementById('compare-thumbs').innerHTML = [...compare]
     .map((id) => cars.find((c) => c.id === id))
-    .map((c) => `<img src="${IMG}/${c.img}.jpg" alt="" class="w-12 h-12 rounded-xl object-cover ring-2 ring-[#1d1a16]">`)
+    .map((c) => `<img src="${IMG}/${c.img}-sm.webp" alt="" width="48" height="48" class="w-12 h-12 rounded-xl object-cover ring-2 ring-[#1d1a16]">`)
     .join('');
   document.getElementById('compare-label').textContent = `${n} de ${MAX_COMPARE} seleccionados`;
   document.getElementById('compare-open').disabled = n < 2;
@@ -202,8 +209,8 @@ function renderCompareTable() {
   const minPrice = Math.min(...list.map((c) => c.precio));
   const minKm = Math.min(...list.map((c) => c.km));
   const maxYear = Math.max(...list.map((c) => c.anio));
-  const best = (on) => (on ? 'text-[#f05a1a] font-bold' : '');
-  const tag = (on, txt) => (on ? `<span class="block text-[11px] font-semibold text-[#f05a1a]">${txt}</span>` : '');
+  const best = (on) => (on ? 'text-[#c2410c] font-bold' : '');
+  const tag = (on, txt) => (on ? `<span class="block text-[11px] font-semibold text-[#c2410c]">${txt}</span>` : '');
 
   const rows = [
     ['Precio', (c) => `<span class="${best(c.precio === minPrice)}">${usd(c.precio)}</span>${tag(c.precio === minPrice, 'Más barato')}`],
@@ -219,8 +226,8 @@ function renderCompareTable() {
         <th class="w-28"></th>
         ${list.map((c) => `
           <th class="p-2 align-top text-left font-normal">
-            <img src="${IMG}/${c.img}.jpg" alt="" class="w-full aspect-[4/3] object-cover rounded-xl mb-2">
-            <span class="block text-xs uppercase tracking-wider text-[#1d1a16]/50">${c.marca}</span>
+            <img src="${IMG}/${c.img}-sm.webp" alt="" width="480" height="360" class="w-full aspect-[4/3] object-cover rounded-xl mb-2">
+            <span class="block text-xs uppercase tracking-wider text-[#1d1a16]/70">${c.marca}</span>
             <span class="block font-head font-bold leading-tight">${c.modelo}</span>
           </th>`).join('')}
       </tr>
@@ -228,7 +235,7 @@ function renderCompareTable() {
     <tbody>
       ${rows.map(([label, fn]) => `
         <tr class="border-t border-black/10">
-          <th scope="row" class="py-3 pr-2 text-left text-sm font-medium text-[#1d1a16]/60">${label}</th>
+          <th scope="row" class="py-3 pr-2 text-left text-sm font-medium text-[#1d1a16]/70">${label}</th>
           ${list.map((c) => `<td class="py-3 px-2 text-sm">${fn(c)}</td>`).join('')}
         </tr>`).join('')}
     </tbody>`;

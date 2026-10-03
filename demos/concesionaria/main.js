@@ -1,14 +1,20 @@
+import '@fontsource/manrope/latin-400.css';
+import '@fontsource/manrope/latin-500.css';
+import '@fontsource/manrope/latin-600.css';
+import '@fontsource/manrope/latin-700.css';
+import '@fontsource/sora/latin-600.css';
+import '@fontsource/sora/latin-700.css';
 import './style.css';
 
 const IMG = '/demos/concesionaria/img';
 
 const models = [
-  { id: 'terra', nombre: 'Orbe Terra', tipo: 'SUV', motor: 'Híbrido', dato: '1.100 km autonomía', plazas: 7, precio: 41900, img: `${IMG}/terra.jpg`, tag: 'Más vendido' },
-  { id: 'aura', nombre: 'Orbe Aura', tipo: 'SUV', motor: 'Eléctrico', dato: '480 km autonomía', plazas: 5, precio: 36500, img: `${IMG}/aura.jpg`, tag: 'Nuevo' },
-  { id: 'veloz', nombre: 'Orbe Veloz GT', tipo: 'Sedán', motor: 'Híbrido', dato: '5,2 L / 100 km', plazas: 5, precio: 32900, img: `${IMG}/veloz.jpg`, tag: null },
-  { id: 'cumbre', nombre: 'Orbe Cumbre', tipo: 'SUV', motor: 'Nafta', dato: '2.0 Turbo · 4x4', plazas: 7, precio: 38900, img: `${IMG}/cumbre.jpg`, tag: null },
-  { id: 'linea', nombre: 'Orbe Línea', tipo: 'Sedán', motor: 'Nafta', dato: '1.5 Turbo · CVT', plazas: 5, precio: 23900, img: `${IMG}/sedan.jpg`, tag: null },
-  { id: 'city', nombre: 'Orbe City', tipo: 'Hatchback', motor: 'Eléctrico', dato: '320 km autonomía', plazas: 5, precio: 21500, img: `${IMG}/city.jpg`, tag: 'Ideal ciudad' },
+  { id: 'terra', nombre: 'Orbe Terra', tipo: 'SUV', motor: 'Híbrido', dato: '1.100 km autonomía', plazas: 7, precio: 41900, img: `${IMG}/terra`, tag: 'Más vendido' },
+  { id: 'aura', nombre: 'Orbe Aura', tipo: 'SUV', motor: 'Eléctrico', dato: '480 km autonomía', plazas: 5, precio: 36500, img: `${IMG}/aura`, tag: 'Nuevo' },
+  { id: 'veloz', nombre: 'Orbe Veloz GT', tipo: 'Sedán', motor: 'Híbrido', dato: '5,2 L / 100 km', plazas: 5, precio: 32900, img: `${IMG}/veloz`, tag: null },
+  { id: 'cumbre', nombre: 'Orbe Cumbre', tipo: 'SUV', motor: 'Nafta', dato: '2.0 Turbo · 4x4', plazas: 7, precio: 38900, img: `${IMG}/cumbre`, tag: null },
+  { id: 'linea', nombre: 'Orbe Línea', tipo: 'Sedán', motor: 'Nafta', dato: '1.5 Turbo · CVT', plazas: 5, precio: 23900, img: `${IMG}/sedan`, tag: null },
+  { id: 'city', nombre: 'Orbe City', tipo: 'Hatchback', motor: 'Eléctrico', dato: '320 km autonomía', plazas: 5, precio: 21500, img: `${IMG}/city`, tag: 'Ideal ciudad' },
 ];
 
 const TNA = 0.099;
@@ -30,7 +36,7 @@ function card(m) {
   return `
     <article class="group flex flex-col rounded-2xl overflow-hidden bg-neutral-900 border border-white/10 transition duration-300 hover:border-emerald-400/50 hover:-translate-y-1">
       <div class="relative aspect-[16/10] overflow-hidden bg-neutral-800">
-        <img src="${m.img}" alt="${m.nombre}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+        <img src="${m.img}-sm.webp" srcset="${m.img}-sm.webp 480w, ${m.img}-md.webp 720w, ${m.img}-lg.webp 960w" sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw" width="480" height="300" alt="${m.nombre}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async">
         ${m.tag ? `<span class="absolute top-3 left-3 text-[11px] font-semibold uppercase tracking-wider bg-emerald-400 text-neutral-950 px-2.5 py-1 rounded-full">${m.tag}</span>` : ''}
         <span class="absolute top-3 right-3 text-[11px] font-medium bg-neutral-950/70 backdrop-blur px-2.5 py-1 rounded-full">${m.motor}</span>
       </div>
@@ -102,7 +108,9 @@ function renderSim() {
   document.getElementById('sim-anticipo-label').textContent = `${pct}% · ${usd(anticipo)}`;
   document.getElementById('sim-cuota').textContent = usd(monthlyPayment(capital, months));
   document.getElementById('sim-detalle').textContent = `${months} cuotas fijas · financiás ${usd(capital)} · TNA ${(TNA * 100).toFixed(1)}%`;
-  document.getElementById('sim-img').src = m.img;
+  const simImg = document.getElementById('sim-img');
+  simImg.srcset = `${m.img}-sm.webp 480w, ${m.img}-md.webp 720w, ${m.img}-lg.webp 960w`;
+  simImg.src = `${m.img}-sm.webp`;
 }
 
 simModel.addEventListener('change', renderSim);

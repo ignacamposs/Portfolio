@@ -2,7 +2,7 @@ function projectRow(project, index) {
   const number = String(index + 1).padStart(2, '0');
 
   const visual = project.imagen
-    ? `<img src="${project.imagen}" alt="Captura de ${project.nombre}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" loading="lazy">`
+    ? `<img src="${project.imagen}-sm.webp" srcset="${project.imagen}-sm.webp 640w, ${project.imagen}-md.webp 900w, ${project.imagen}-lg.webp 1280w" sizes="(min-width: 768px) 640px, 100vw" width="640" height="400" alt="Captura de ${project.nombre}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" loading="lazy" decoding="async">`
     : `<div class="w-full h-full flex items-center justify-center bg-ink transition-transform duration-700 group-hover:scale-[1.03]">
          <span class="font-display italic text-4xl md:text-5xl text-paper-100">${project.nombre}</span>
        </div>`;
