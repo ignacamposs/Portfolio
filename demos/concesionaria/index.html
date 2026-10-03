@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbe Motors | Demo de concesionaria — Matías Campos</title>
+    <meta name="description" content="Sitio demo de una concesionaria ficticia: catálogo filtrable, simulador de financiación y reserva de test drive. Diseñado y desarrollado por Matías Ignacio Campos.">
+    <meta name="robots" content="noindex">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Aviso de demo -->
+    <div class="bg-emerald-400 text-neutral-950 text-xs sm:text-sm">
+        <div class="max-w-7xl mx-auto px-5 py-2 flex items-center justify-between gap-4">
+            <p><strong>Sitio demo</strong> · Concesionaria ficticia creada por Matías Campos</p>
+            <a href="/" class="shrink-0 font-semibold underline underline-offset-2 hover:no-underline">← Ver portfolio</a>
+        </div>
+    </div>
+
+    <nav class="sticky top-0 z-50 bg-neutral-950/80 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-5 h-16 flex items-center justify-between">
+            <a href="#" class="font-head text-xl font-bold tracking-tight">ORBE<span class="text-emerald-400">.</span>MOTORS</a>
+            <div class="hidden md:flex items-center gap-8 text-sm text-neutral-300">
+                <a href="#modelos" class="hover:text-white transition-colors">Modelos</a>
+                <a href="#financiacion" class="hover:text-white transition-colors">Financiación</a>
+                <a href="#beneficios" class="hover:text-white transition-colors">Por qué Orbe</a>
+                <a href="#test-drive" class="text-sm font-semibold bg-emerald-400 text-neutral-950 px-4 py-2 rounded-full hover:bg-emerald-300 transition-colors">Agendar test drive</a>
+            </div>
+            <button id="menu-btn" class="md:hidden p-2 -mr-2" aria-label="Menú" aria-expanded="false" aria-controls="menu">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" d="M4 8h16M4 16h16"/></svg>
+            </button>
+        </div>
+        <div id="menu" class="hidden md:hidden border-t border-white/10 px-5 py-5 flex flex-col gap-4 text-lg">
+            <a href="#modelos">Modelos</a>
+            <a href="#financiacion">Financiación</a>
+            <a href="#beneficios">Por qué Orbe</a>
+            <a href="#test-drive" class="text-emerald-400 font-semibold">Agendar test drive</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="relative overflow-hidden">
+        <img src="/demos/concesionaria/img/hero.jpg" alt="" class="absolute inset-0 w-full h-full object-cover object-center opacity-70">
+        <div class="absolute inset-0 bg-gradient-to-r from-neutral-950 via-neutral-950/70 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent"></div>
+        <div class="relative max-w-7xl mx-auto px-5 pt-24 pb-20 md:pt-36 md:pb-28">
+            <p class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400 mb-6">
+                <span class="w-6 h-px bg-emerald-400"></span> Eléctricos · Híbridos · 0 km
+            </p>
+            <h1 class="font-head text-4xl sm:text-6xl md:text-7xl font-semibold leading-[1.02] tracking-tight max-w-3xl mb-6">
+                La nueva generación de autos ya está en Buenos Aires.
+            </h1>
+            <p class="text-lg text-neutral-300 max-w-xl mb-10">
+                Tecnología de punta, garantía oficial de 5 años y financiación a tu medida. Elegí tu modelo, simulá tu cuota y vení a manejarlo.
+            </p>
+            <div class="flex flex-wrap gap-3">
+                <a href="#modelos" class="font-semibold bg-white text-neutral-950 px-6 py-3.5 rounded-full hover:bg-emerald-400 transition-colors">Ver modelos</a>
+                <a href="#test-drive" class="font-semibold border border-white/30 px-6 py-3.5 rounded-full hover:border-white transition-colors">Agendar test drive</a>
+            </div>
+
+            <dl class="mt-16 grid grid-cols-3 gap-6 max-w-xl border-t border-white/15 pt-6">
+                <div><dt class="text-xs text-neutral-400 mb-1">Modelos</dt><dd class="font-head text-xl sm:text-2xl md:text-3xl font-semibold">6</dd></div>
+                <div><dt class="text-xs text-neutral-400 mb-1">Autonomía hasta</dt><dd class="font-head text-xl sm:text-2xl md:text-3xl font-semibold">1.100 km</dd></div>
+                <div><dt class="text-xs text-neutral-400 mb-1">Financiación</dt><dd class="font-head text-xl sm:text-2xl md:text-3xl font-semibold">60 cuotas</dd></div>
+            </dl>
+        </div>
+    </header>
+
+    <main>
+        <!-- Catálogo -->
+        <section id="modelos" class="max-w-7xl mx-auto px-5 py-20 md:py-28">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+                <div>
+                    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400 mb-3">Catálogo</p>
+                    <h2 class="font-head text-3xl md:text-5xl font-semibold tracking-tight">Encontrá tu próximo auto</h2>
+                </div>
+                <p id="count" class="text-sm text-neutral-400" aria-live="polite"></p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row lg:items-center gap-4 mb-10">
+                <div class="flex flex-wrap gap-2" data-filter="tipo" role="group" aria-label="Filtrar por carrocería">
+                    <button type="button" data-value="Todos" aria-pressed="true" class="text-sm px-4 py-2 rounded-full border border-white bg-white text-neutral-950 transition-colors">Todos</button>
+                    <button type="button" data-value="SUV" aria-pressed="false" class="text-sm px-4 py-2 rounded-full border border-white/20 transition-colors hover:border-white">SUV</button>
+                    <button type="button" data-value="Sedán" aria-pressed="false" class="text-sm px-4 py-2 rounded-full border border-white/20 transition-colors hover:border-white">Sedán</button>
+                    <button type="button" data-value="Hatchback" aria-pressed="false" class="text-sm px-4 py-2 rounded-full border border-white/20 transition-colors hover:border-white">Hatchback</button>
+                </div>
+                <span class="hidden lg:block w-px h-6 bg-white/15"></span>
+                <div class="flex flex-wrap gap-2" data-filter="motor" role="group" aria-label="Filtrar por motorización">
+                    <button type="button" data-value="Todos" aria-pressed="true" class="text-sm px-4 py-2 rounded-full border border-white bg-white text-neutral-950 transition-colors">Todos</button>
+                    <button type="button" data-value="Eléctrico" aria-pressed="false" class="text-sm px-4 py-2 rounded-full border border-white/20 transition-colors hover:border-white">⚡ Eléctrico</button>
+                    <button type="button" data-value="Híbrido" aria-pressed="false" class="text-sm px-4 py-2 rounded-full border border-white/20 transition-colors hover:border-white">Híbrido</button>
+                    <button type="button" data-value="Nafta" aria-pressed="false" class="text-sm px-4 py-2 rounded-full border border-white/20 transition-colors hover:border-white">Nafta</button>
+                </div>
+                <label class="lg:ml-auto flex items-center gap-2 text-sm text-neutral-400">
+                    Ordenar
+                    <select id="orden" class="bg-neutral-900 border border-white/20 rounded-full px-4 py-2 text-neutral-100">
+                        <option value="relevancia">Destacados</option>
+                        <option value="menor">Menor precio</option>
+                        <option value="mayor">Mayor precio</option>
+                    </select>
+                </label>
+            </div>
+
+            <div id="grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+            <p id="empty" class="hidden text-center text-neutral-400 py-16">No hay modelos con esa combinación. Probá con otro filtro.</p>
+        </section>
+
+        <!-- Financiación -->
+        <section id="financiacion" class="bg-neutral-900 border-y border-white/10">
+            <div class="max-w-7xl mx-auto px-5 py-20 md:py-28 grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400 mb-3">Simulador</p>
+                    <h2 class="font-head text-3xl md:text-5xl font-semibold tracking-tight mb-4">Calculá tu cuota en segundos</h2>
+                    <p class="text-neutral-400 mb-10">Elegí el modelo, cuánto querés poner de anticipo y en cuántas cuotas. Sin vueltas.</p>
+
+                    <div class="space-y-8">
+                        <label class="block">
+                            <span class="block text-sm text-neutral-400 mb-2">Modelo</span>
+                            <select id="sim-modelo" class="w-full bg-neutral-950 border border-white/20 rounded-xl px-4 py-3"></select>
+                        </label>
+                        <label class="block">
+                            <span class="flex justify-between text-sm text-neutral-400 mb-3">Anticipo <span id="sim-anticipo-label" class="text-neutral-100 font-medium"></span></span>
+                            <input id="sim-anticipo" type="range" min="10" max="70" step="5" value="30" class="w-full">
+                        </label>
+                        <div>
+                            <span class="block text-sm text-neutral-400 mb-2">Plazo</span>
+                            <div id="sim-plazo" class="grid grid-cols-5 gap-2" role="group" aria-label="Cantidad de cuotas">
+                                <button type="button" data-value="12" aria-pressed="false" class="py-2.5 rounded-xl border border-white/20 text-sm transition-colors hover:border-white">12</button>
+                                <button type="button" data-value="24" aria-pressed="false" class="py-2.5 rounded-xl border border-white/20 text-sm transition-colors hover:border-white">24</button>
+                                <button type="button" data-value="36" aria-pressed="true" class="py-2.5 rounded-xl border border-emerald-400 bg-emerald-400 text-neutral-950 text-sm transition-colors">36</button>
+                                <button type="button" data-value="48" aria-pressed="false" class="py-2.5 rounded-xl border border-white/20 text-sm transition-colors hover:border-white">48</button>
+                                <button type="button" data-value="60" aria-pressed="false" class="py-2.5 rounded-xl border border-white/20 text-sm transition-colors hover:border-white">60</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rounded-3xl overflow-hidden bg-neutral-950 border border-white/10">
+                    <img id="sim-img" src="" alt="" class="w-full aspect-[16/9] object-cover">
+                    <div class="p-8">
+                        <p class="text-sm text-neutral-400 mb-1">Tu cuota mensual</p>
+                        <p id="sim-cuota" class="font-head text-5xl md:text-6xl font-semibold text-emerald-400 mb-3" aria-live="polite"></p>
+                        <p id="sim-detalle" class="text-sm text-neutral-400 mb-8"></p>
+                        <a href="#test-drive" class="block text-center font-semibold bg-white text-neutral-950 px-6 py-3.5 rounded-full hover:bg-emerald-400 transition-colors">Quiero este plan</a>
+                        <p class="text-[11px] text-neutral-500 mt-4">Valores de ejemplo para esta demo. No constituyen una oferta.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Beneficios -->
+        <section id="beneficios" class="max-w-7xl mx-auto px-5 py-20 md:py-28">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400 mb-3">Por qué Orbe</p>
+            <h2 class="font-head text-3xl md:text-5xl font-semibold tracking-tight mb-12 max-w-2xl">Comprar un auto debería ser simple.</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-6 rounded-2xl bg-neutral-900 border border-white/10">
+                    <p class="text-3xl mb-4">🛡️</p>
+                    <h3 class="font-head font-semibold text-lg mb-2">5 años de garantía</h3>
+                    <p class="text-sm text-neutral-400">Garantía oficial y service en concesionario con turnos online.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-neutral-900 border border-white/10">
+                    <p class="text-3xl mb-4">⚡</p>
+                    <h3 class="font-head font-semibold text-lg mb-2">Cargador de regalo</h3>
+                    <p class="text-sm text-neutral-400">Con tu eléctrico o híbrido enchufable, instalamos el cargador en tu casa.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-neutral-900 border border-white/10">
+                    <p class="text-3xl mb-4">🔁</p>
+                    <h3 class="font-head font-semibold text-lg mb-2">Tomamos tu usado</h3>
+                    <p class="text-sm text-neutral-400">Tasación en el momento como parte de pago.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-neutral-900 border border-white/10">
+                    <p class="text-3xl mb-4">🚗</p>
+                    <h3 class="font-head font-semibold text-lg mb-2">Entrega inmediata</h3>
+                    <p class="text-sm text-neutral-400">Unidades en stock listas para patentar.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Test drive -->
+        <section id="test-drive" class="max-w-7xl mx-auto px-5 pb-20 md:pb-28">
+            <div class="rounded-3xl bg-gradient-to-br from-emerald-400 to-teal-500 text-neutral-950 p-8 md:p-14 grid lg:grid-cols-2 gap-10">
+                <div>
+                    <h2 class="font-head text-3xl md:text-5xl font-semibold tracking-tight mb-4">Manejalo antes de decidir.</h2>
+                    <p class="text-neutral-900/80 text-lg">Reservá tu test drive en menos de un minuto. Te confirmamos el horario por WhatsApp.</p>
+                </div>
+
+                <form id="form-test" class="grid sm:grid-cols-2 gap-4" novalidate>
+                    <label class="block">
+                        <span class="block text-sm font-medium mb-1.5">Nombre</span>
+                        <input name="nombre" required autocomplete="given-name" class="w-full rounded-xl bg-white/90 px-4 py-3 placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-neutral-950" placeholder="Tu nombre">
+                    </label>
+                    <label class="block">
+                        <span class="block text-sm font-medium mb-1.5">Teléfono</span>
+                        <input name="telefono" type="tel" required pattern="[0-9 +()-]{8,}" autocomplete="tel" class="w-full rounded-xl bg-white/90 px-4 py-3 placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-neutral-950" placeholder="11 2345 6789">
+                    </label>
+                    <label class="block">
+                        <span class="block text-sm font-medium mb-1.5">Modelo</span>
+                        <select id="td-modelo" name="modelo" class="w-full rounded-xl bg-white/90 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-neutral-950"></select>
+                    </label>
+                    <label class="block">
+                        <span class="block text-sm font-medium mb-1.5">Día</span>
+                        <input id="td-fecha" name="fecha" type="date" required class="w-full rounded-xl bg-white/90 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-neutral-950">
+                    </label>
+                    <button type="submit" class="sm:col-span-2 mt-2 font-semibold bg-neutral-950 text-white px-6 py-4 rounded-full hover:bg-neutral-800 transition-colors">Reservar test drive</button>
+                </form>
+
+                <div id="td-ok" class="hidden flex-col justify-center" role="status">
+                    <p class="text-4xl mb-3">✅</p>
+                    <p class="font-head text-2xl font-semibold mb-2">¡Listo, reservado!</p>
+                    <p id="td-ok-texto" class="text-neutral-900/80 mb-6"></p>
+                    <button id="td-reset" type="button" class="self-start text-sm font-semibold underline underline-offset-4">Hacer otra reserva</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-5 py-12 grid md:grid-cols-3 gap-8 text-sm text-neutral-400">
+            <div>
+                <p class="font-head text-lg font-bold text-neutral-100 mb-2">ORBE<span class="text-emerald-400">.</span>MOTORS</p>
+                <p>Concesionaria ficticia · Sitio de demostración.</p>
+            </div>
+            <div>
+                <p class="text-neutral-100 font-medium mb-2">Showroom</p>
+                <p>Lunes a viernes 9 a 19 h · Sábados 9 a 13 h</p>
+                <p>Buenos Aires, Argentina</p>
+            </div>
+            <div>
+                <p class="text-neutral-100 font-medium mb-2">¿Querés una web así para tu concesionaria?</p>
+                <a href="mailto:tiasigdev@gmail.com?subject=Web%20para%20concesionaria" class="text-emerald-400 font-semibold hover:underline">Escribile a Matías → tiasigdev@gmail.com</a>
+            </div>
+        </div>
+        <p class="max-w-7xl mx-auto px-5 pb-8 text-[11px] text-neutral-600">Diseño y desarrollo: Matías Ignacio Campos. Fotos: Unsplash. Marcas, modelos y precios son ficticios.</p>
+    </footer>
+
+    <script type="module" src="/demos/concesionaria/main.js"></script>
+</body>
+</html>

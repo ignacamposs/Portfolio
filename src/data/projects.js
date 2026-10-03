@@ -1,5 +1,17 @@
 export const projects = [
   {
+    id: 'orbe-motors',
+    nombre: 'Orbe Motors',
+    tipo: 'Demo · Sitio para concesionaria de autos',
+    anio: '2026',
+    rol: 'Proyecto demo',
+    stack: ['HTML', 'Tailwind CSS', 'JavaScript', 'Vite'],
+    descripcion:
+      'Concesionaria ficticia de autos eléctricos e híbridos: catálogo con filtros por carrocería y motor, simulador de cuotas en tiempo real y reserva de test drive. Pensada para convertir visitas en consultas.',
+    imagen: '/img/orbe-motors.jpg',
+    link: '/demos/concesionaria/',
+  },
+  {
     id: 'naro',
     nombre: 'NARO',
     tipo: 'Sistema de gestión gastronómica con IA',

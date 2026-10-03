@@ -9,6 +9,9 @@ if (projectsContainer) {
   mountProjects(projectsContainer, projects);
 }
 
+const projectsCount = document.getElementById('proyectos-count');
+if (projectsCount) projectsCount.textContent = `(${String(projects.length).padStart(2, '0')})`;
+
 const year = document.getElementById('year');
 if (year) year.textContent = new Date().getFullYear();
 

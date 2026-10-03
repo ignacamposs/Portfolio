@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  @apply bg-neutral-950 text-neutral-100 antialiased;
+  font-family: 'Manrope', system-ui, sans-serif;
+}
+
+.font-head {
+  font-family: 'Sora', system-ui, sans-serif;
+}
+
+input[type='range'] {
+  accent-color: #2dd4a7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
