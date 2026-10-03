@@ -12,6 +12,18 @@ export const projects = [
     link: '/demos/concesionaria/',
   },
   {
+    id: 'garage-sur',
+    nombre: 'Garage Sur',
+    tipo: 'Demo · Sitio para agencia de autos usados',
+    anio: '2026',
+    rol: 'Proyecto demo',
+    stack: ['HTML', 'Tailwind CSS', 'JavaScript', 'Local Storage'],
+    descripcion:
+      'Agencia ficticia de usados: buscador con filtros, favoritos que quedan guardados, comparador de hasta 3 autos lado a lado y un formulario de tasación en 3 pasos que da un valor estimado al instante.',
+    imagen: '/img/garage-sur.jpg',
+    link: '/demos/usados/',
+  },
+  {
     id: 'naro',
     nombre: 'NARO',
     tipo: 'Sistema de gestión gastronómica con IA',
