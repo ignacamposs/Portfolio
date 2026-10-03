@@ -6,19 +6,21 @@ export function initNav() {
 
   if (!menu || !menuBtn) return;
 
-  const closeMenu = () => {
-    menu.classList.add('hidden');
-    iconOpen.classList.remove('hidden');
-    iconClose.classList.add('hidden');
+  const setOpen = (open) => {
+    menu.classList.toggle('hidden', !open);
+    iconOpen.classList.toggle('hidden', open);
+    iconClose.classList.toggle('hidden', !open);
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
   };
 
   menuBtn.addEventListener('click', () => {
-    menu.classList.toggle('hidden');
-    iconOpen.classList.toggle('hidden');
-    iconClose.classList.toggle('hidden');
+    setOpen(menu.classList.contains('hidden'));
   });
 
   menu.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', closeMenu);
+    link.addEventListener('click', () => setOpen(false));
   });
+
+  setOpen(false);
 }

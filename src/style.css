@@ -4,24 +4,15 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
 }
 
 body {
-  @apply bg-cream text-espresso-900 font-sans antialiased;
+  @apply bg-paper text-ink font-sans antialiased;
 }
 
 ::selection {
-  @apply bg-terracotta text-cream;
-}
-
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  @apply bg-cream;
-}
-::-webkit-scrollbar-thumb {
-  @apply bg-espresso-700 rounded-full;
+  @apply bg-accent text-paper-100;
 }
 
 /* @layer components places this before Tailwind's utilities in the cascade,
@@ -40,27 +31,13 @@ body {
   }
 }
 
-@keyframes pulse-ring {
-  0%, 100% {
-    filter: drop-shadow(0 0 0 rgba(189, 91, 52, 0));
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
-  50% {
-    filter: drop-shadow(0 0 5px rgba(189, 91, 52, 0.45));
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
-}
-
-@keyframes ring-complete {
-  0% {
-    filter: drop-shadow(0 0 0 rgba(189, 91, 52, 0));
-  }
-  35% {
-    filter: drop-shadow(0 0 10px rgba(189, 91, 52, 0.9));
-  }
-  100% {
-    filter: drop-shadow(0 0 0 rgba(189, 91, 52, 0));
-  }
-}
-
-#extraction-ring.extraction-ring--done {
-  animation: ring-complete 0.8s ease-out;
 }
