@@ -5,6 +5,7 @@ import '@fontsource/manrope/latin-700.css';
 import '@fontsource/sora/latin-600.css';
 import '@fontsource/sora/latin-700.css';
 import './style.css';
+import { mountWhatsAppButton, whatsappUrl } from '../../src/modules/whatsapp.js';
 
 const IMG = '/demos/concesionaria/img';
 
@@ -184,6 +185,10 @@ menu.querySelectorAll('a').forEach((a) =>
     menuBtn.setAttribute('aria-expanded', 'false');
   })
 );
+
+const WA_MSG = 'Hola Matías! Vi la demo de Orbe Motors y me interesa una web así para mi concesionaria.';
+mountWhatsAppButton({ message: WA_MSG, label: '¿Querés esta web? Hablá con Matías', shortLabel: 'Quiero esta web' });
+document.querySelectorAll('[data-whatsapp]').forEach((a) => (a.href = whatsappUrl(WA_MSG)));
 
 renderGrid();
 renderSim();

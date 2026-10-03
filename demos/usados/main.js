@@ -6,6 +6,7 @@ import '@fontsource/bricolage-grotesque/latin-600.css';
 import '@fontsource/bricolage-grotesque/latin-700.css';
 import '@fontsource/bricolage-grotesque/latin-800.css';
 import './style.css';
+import { mountWhatsAppButton, whatsappUrl } from '../../src/modules/whatsapp.js';
 
 const IMG = '/demos/usados/img';
 
@@ -196,6 +197,7 @@ function renderCompareBar() {
   const n = compare.size;
   bar.classList.toggle('translate-y-[150%]', n === 0);
   bar.inert = n === 0;
+  waBtn.style.transform = n === 0 ? '' : 'translateY(-5.5rem)';
   document.getElementById('compare-thumbs').innerHTML = [...compare]
     .map((id) => cars.find((c) => c.id === id))
     .map((c) => `<img src="${IMG}/${c.img}-sm.webp" alt="" width="48" height="48" class="w-12 h-12 rounded-xl object-cover ring-2 ring-[#1d1a16]">`)
@@ -332,6 +334,10 @@ menu.querySelectorAll('a').forEach((a) =>
     menuBtn.setAttribute('aria-expanded', 'false');
   })
 );
+
+const WA_MSG = 'Hola Matías! Vi la demo de Garage Sur y me interesa una web así para mi agencia.';
+const waBtn = mountWhatsAppButton({ message: WA_MSG, label: '¿Querés esta web? Hablá con Matías', shortLabel: 'Quiero esta web' });
+document.querySelectorAll('[data-whatsapp]').forEach((a) => (a.href = whatsappUrl(WA_MSG)));
 
 showStep(0);
 render();

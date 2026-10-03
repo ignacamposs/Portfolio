@@ -4,11 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matías Ignacio Campos | Front-End Developer</title>
+    <meta property="og:url" content="https://portfolio-igna-campos.vercel.app/">
+    <meta property="og:image" content="https://portfolio-igna-campos.vercel.app/og/portfolio.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="es_AR">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2314140f'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' font-style='italic' fill='%23f5f4f0' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
 
     <meta name="description" content="Front-End Developer en Buenos Aires. Construyo interfaces rápidas, claras y responsive con HTML, CSS, JavaScript y Tailwind CSS.">
     <meta property="og:title" content="Matías Ignacio Campos | Front-End Developer">
-    <meta property="og:description" content="Interfaces rápidas, claras y responsive con HTML, CSS, JavaScript y Tailwind CSS.">
+    <meta property="og:description" content="Front-End Developer en Buenos Aires. Webs rápidas para concesionarias y agencias de autos: mirá los proyectos y probá las demos.">
     <meta property="og:type" content="website">
 </head>
 <body>
@@ -21,6 +27,7 @@
             <!-- Desktop menu -->
             <div class="hidden md:flex items-center gap-8 text-sm">
                 <a href="#proyectos" class="text-ink-700 transition-colors hover:text-accent">Proyectos</a>
+                <a href="#servicios" class="text-ink-700 transition-colors hover:text-accent">Servicios</a>
                 <a href="#sobre-mi" class="text-ink-700 transition-colors hover:text-accent">Sobre mí</a>
                 <a href="#stack" class="text-ink-700 transition-colors hover:text-accent">Stack</a>
                 <a href="#contacto" class="text-paper-100 bg-ink px-4 py-2 rounded-full transition-colors hover:bg-accent">Contacto</a>
@@ -38,6 +45,7 @@
         <!-- Mobile menu -->
         <div id="mobile-menu" class="hidden md:hidden border-t border-ink/10 px-6 py-6 flex flex-col gap-5 text-lg">
             <a href="#proyectos" class="transition-colors hover:text-accent">Proyectos</a>
+            <a href="#servicios" class="transition-colors hover:text-accent">Servicios</a>
             <a href="#sobre-mi" class="transition-colors hover:text-accent">Sobre mí</a>
             <a href="#stack" class="transition-colors hover:text-accent">Stack</a>
             <a href="#contacto" class="transition-colors hover:text-accent">Contacto</a>
@@ -78,6 +86,72 @@
                 <span id="proyectos-count" class="font-mono text-xs text-ink-500 hidden sm:block"></span>
             </div>
             <div id="proyectos-list" class="border-b border-ink/15"></div>
+        </section>
+
+
+        <section id="servicios" class="bg-ink text-paper-100">
+            <div class="max-w-6xl mx-auto px-6 py-24 md:py-32">
+                <p class="font-mono text-xs text-ink-300 mb-6" data-reveal>Servicios</p>
+                <h2 class="font-display text-4xl sm:text-5xl md:text-6xl leading-[1] mb-6 max-w-3xl [transition-delay:80ms]" data-reveal>
+                    Webs para concesionarias y <em class="text-[#9aa6ff]">agencias de autos.</em>
+                </h2>
+                <p class="text-lg text-paper-100/75 max-w-2xl mb-16 [transition-delay:160ms]" data-reveal>
+                    La mayoría de tus clientes te van a encontrar desde el celular. Diseño sitios que cargan rápido,
+                    muestran tu stock con claridad y convierten cada visita en una consulta.
+                </p>
+
+                <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-paper-100/10 rounded-xl overflow-hidden mb-16" data-reveal>
+                    <li class="bg-ink p-7">
+                        <h3 class="text-lg font-medium mb-2">Catálogo con filtros</h3>
+                        <p class="text-paper-100/70 text-sm leading-relaxed">Tus autos con fotos, precio y datos clave. Filtros por marca, precio, carrocería o caja.</p>
+                    </li>
+                    <li class="bg-ink p-7">
+                        <h3 class="text-lg font-medium mb-2">Consultas por WhatsApp</h3>
+                        <p class="text-paper-100/70 text-sm leading-relaxed">Cada auto y cada formulario llevan directo a tu WhatsApp, con el modelo ya escrito en el mensaje.</p>
+                    </li>
+                    <li class="bg-ink p-7">
+                        <h3 class="text-lg font-medium mb-2">Herramientas que venden</h3>
+                        <p class="text-paper-100/70 text-sm leading-relaxed">Simulador de cuotas, tasación de usados, comparador o reserva de test drive, según tu negocio.</p>
+                    </li>
+                    <li class="bg-ink p-7">
+                        <h3 class="text-lg font-medium mb-2">Rápida en el celular</h3>
+                        <p class="text-paper-100/70 text-sm leading-relaxed">Las demos de este portfolio puntúan entre 97 y 100 en velocidad mobile según Google Lighthouse.</p>
+                    </li>
+                    <li class="bg-ink p-7">
+                        <h3 class="text-lg font-medium mb-2">Diseño a medida</h3>
+                        <p class="text-paper-100/70 text-sm leading-relaxed">Con los colores y la identidad de tu marca. Nada de plantillas genéricas.</p>
+                    </li>
+                    <li class="bg-ink p-7">
+                        <h3 class="text-lg font-medium mb-2">Publicada y lista</h3>
+                        <p class="text-paper-100/70 text-sm leading-relaxed">Me encargo de dejarla online con tu dominio, para que solo tengas que compartir el link.</p>
+                    </li>
+                </ul>
+
+                <div class="grid md:grid-cols-12 gap-10 items-start">
+                    <div class="md:col-span-7" data-reveal>
+                        <h3 class="font-mono text-xs text-ink-300 mb-6">Cómo trabajamos</h3>
+                        <ol class="space-y-5">
+                            <li class="flex gap-5"><span class="font-display text-3xl text-[#9aa6ff] leading-none w-8">1</span><div><p class="font-medium">Charlamos</p><p class="text-sm text-paper-100/70">Me contás cómo vendés y qué necesitás que haga la web.</p></div></li>
+                            <li class="flex gap-5"><span class="font-display text-3xl text-[#9aa6ff] leading-none w-8">2</span><div><p class="font-medium">Te muestro una propuesta</p><p class="text-sm text-paper-100/70">Un diseño con tu marca para que veas cómo va a quedar antes de avanzar.</p></div></li>
+                            <li class="flex gap-5"><span class="font-display text-3xl text-[#9aa6ff] leading-none w-8">3</span><div><p class="font-medium">Desarrollo y ajustes</p><p class="text-sm text-paper-100/70">La construyo y la ajustamos juntos hasta que quede como querés.</p></div></li>
+                            <li class="flex gap-5"><span class="font-display text-3xl text-[#9aa6ff] leading-none w-8">4</span><div><p class="font-medium">Publicación</p><p class="text-sm text-paper-100/70">Queda online y lista para compartir con tus clientes.</p></div></li>
+                        </ol>
+                    </div>
+                    <div class="md:col-span-5 md:pl-6 [transition-delay:100ms]" data-reveal>
+                        <div class="rounded-2xl bg-paper-100 text-ink p-7">
+                            <p class="font-display text-3xl leading-tight mb-3">Pedí tu presupuesto sin cargo.</p>
+                            <p class="text-sm text-ink-700 mb-6">Contame de tu concesionaria y te respondo a la brevedad.</p>
+                            <a href="#" data-whatsapp="Hola Matías! Tengo una concesionaria/agencia y quiero pedir presupuesto para una web." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full text-sm font-semibold text-white bg-[#15803d] px-6 py-3.5 rounded-full transition-colors hover:bg-[#166534]">
+                                Escribime por WhatsApp
+                            </a>
+                            <div class="flex gap-3 mt-3">
+                                <a href="/demos/concesionaria/" class="flex-1 text-center text-sm font-medium px-4 py-3 rounded-full border border-ink/20 transition-colors hover:border-accent hover:text-accent">Demo 0 km</a>
+                                <a href="/demos/usados/" class="flex-1 text-center text-sm font-medium px-4 py-3 rounded-full border border-ink/20 transition-colors hover:border-accent hover:text-accent">Demo usados</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="sobre-mi" class="max-w-6xl mx-auto px-6 py-24 md:py-32">
@@ -155,7 +229,7 @@
     </main>
 
     <footer id="contacto" class="bg-ink text-paper-100">
-        <div class="max-w-6xl mx-auto px-6 pt-24 md:pt-32 pb-10">
+        <div class="max-w-6xl mx-auto px-6 pt-24 md:pt-32 pb-24 sm:pb-10">
             <p class="font-mono text-xs text-ink-300 mb-6" data-reveal>Contacto</p>
             <h2 class="font-display text-5xl sm:text-6xl md:text-7xl leading-[1] mb-12 max-w-4xl [transition-delay:80ms]" data-reveal>
                 ¿Tenés un proyecto en mente? <em class="text-ink-300">Hablemos.</em>
@@ -164,6 +238,11 @@
                 tiasigdev@gmail.com
                 <span aria-hidden="true" class="inline-block transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">&#8599;</span>
             </a>
+            <div class="mt-8 [transition-delay:220ms]" data-reveal>
+                <a href="#" data-whatsapp target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-white bg-[#15803d] px-6 py-3.5 rounded-full transition-colors hover:bg-[#166534]">
+                    WhatsApp · 294 470-2059
+                </a>
+            </div>
 
             <div class="mt-24 md:mt-32 pt-8 border-t border-paper-100/15 flex flex-col sm:flex-row justify-between gap-6 text-sm">
                 <p class="text-ink-300">© <span id="year">2026</span> Matías Ignacio Campos</p>
